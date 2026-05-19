@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qalb — قلب — Sher & Shayari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #faf7f0;
+      --paper:     #f3ede0;
+      --paper2:    #ede4d0;
+      --ink:       #1e1a14;
+      --ink-soft:  #4a4030;
+      --ink-muted: #8a7a60;
+      --accent:    #7a3228;
+      --accent2:   #4a6741;
+      --gold:      #b8892a;
+      --border:    rgba(120,100,60,.18);
+      --shadow:    0 2px 24px rgba(60,40,10,.08);
+      --shadow-lg: 0 8px 48px rgba(60,40,10,.13);
+      --radius:    12px;
+      --trans:     .22s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--paper); }
+    ::-webkit-scrollbar-thumb { background: var(--paper2); border-radius: 3px; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,247,240,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(16px,4vw,48px);
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px; cursor: pointer;
+      text-decoration: none;
+    }
+    .logo-urdu {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 1.7rem; line-height: 1;
+      color: var(--accent);
+    }
+    .logo-en {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--ink); letter-spacing: .03em;
+    }
+    .logo-divider {
+      width: 1px; height: 28px;
+      background: var(--border);
+    }
+    nav { display: flex; align-items: center; gap: 6px; }
+    nav button {
+      background: none; border: none; cursor: pointer;
+      font-family: 'EB Garamond', serif; font-size: 1rem;
+      color: var(--ink-soft); padding: 6px 14px; border-radius: 20px;
+      transition: var(--trans); letter-spacing: .01em;
+    }
+    nav button:hover { background: var(--paper); color: var(--accent); }
+    nav button.active { background: var(--accent); color: #fff; }
+
+    /* search icon in header */
+    .header-search-btn {
+      background: none; border: 1.5px solid var(--border);
+      border-radius: 20px; cursor: pointer;
+      color: var(--ink-soft); padding: 6px 14px;
+      font-family: 'EB Garamond', serif; font-size: .95rem;
+      display: flex; align-items: center; gap: 6px;
+      transition: var(--trans);
+    }
+    .header-search-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── PAGE WRAPPER ─── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(160deg, #f3ede0 0%, #ede4d0 60%, #e5d8be 100%);
+      border-bottom: 1px solid var(--border);
+      padding: clamp(40px,8vw,90px) clamp(16px,4vw,48px) clamp(32px,6vw,70px);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: 'شعر';
+      position: absolute; right: -20px; top: -30px;
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: clamp(140px,22vw,260px);
+      color: rgba(120,90,40,.06); line-height: 1;
+      pointer-events: none; user-select: none;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; }
+    .hero-tag {
+      display: inline-block;
+      font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent);
+      border-radius: 20px; padding: 4px 14px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem,5vw,3.4rem); font-weight: 700;
+      line-height: 1.18; color: var(--ink);
+      max-width: 560px; margin-bottom: 14px;
+    }
+    .hero p {
+      color: var(--ink-soft); font-size: 1.1rem;
+      max-width: 480px; line-height: 1.7; margin-bottom: 28px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #fff;
+      border: none; cursor: pointer;
+      font-family: 'EB Garamond', serif; font-size: 1.05rem;
+      padding: 11px 26px; border-radius: 28px;
+      transition: var(--trans); letter-spacing: .02em;
+    }
+    .btn-primary:hover { background: #5e261e; transform: translateY(-1px); }
+    .btn-outline {
+      background: none; color: var(--ink-soft);
+      border: 1.5px solid var(--border); cursor: pointer;
+      font-family: 'EB Garamond', serif; font-size: 1.05rem;
+      padding: 11px 26px; border-radius: 28px;
+      transition: var(--trans); letter-spacing: .02em;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Sher of the day in hero */
+    .sotd-card {
+      margin-top: 40px;
+      background: rgba(255,255,255,.55);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      max-width: 620px;
+      backdrop-filter: blur(4px);
+    }
+    .sotd-label {
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sotd-label::before {
+      content: ''; display: block;
+      width: 20px; height: 1px; background: var(--accent);
+    }
+
+    /* ─── SECTION ─── */
+    section { padding: clamp(32px,6vw,72px) clamp(16px,4vw,48px); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 28px; flex-wrap: wrap; gap: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem,3vw,1.8rem); font-weight: 600;
+      color: var(--ink);
+    }
+    .section-title span {
+      font-style: italic; color: var(--accent); font-weight: 400;
+    }
+    .see-all {
+      background: none; border: none; cursor: pointer;
+      font-family: 'EB Garamond', serif; font-size: .95rem;
+      color: var(--accent); text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ─── THEME GRID ─── */
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .theme-chip {
+      background: var(--paper); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 16px;
+      cursor: pointer; text-align: center;
+      transition: var(--trans);
+    }
+    .theme-chip:hover {
+      background: var(--accent); color: #fff;
+      border-color: var(--accent); transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .theme-chip:hover .theme-chip-urdu { color: rgba(255,255,255,.75); }
+    .theme-chip-emoji { font-size: 1.5rem; display: block; margin-bottom: 8px; }
+    .theme-chip-en {
+      font-family: 'Playfair Display', serif; font-size: .95rem;
+      font-weight: 600; display: block;
+    }
+    .theme-chip-urdu {
+      font-family: 'Noto Nastaliq Urdu', serif; font-size: .85rem;
+      color: var(--ink-muted); display: block; margin-top: 3px;
+    }
+
+    /* ─── SHAYARI CARDS ─── */
+    .shayari-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 20px;
+    }
+    .sher-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 24px 20px;
+      box-shadow: var(--shadow); transition: var(--trans);
+      display: flex; flex-direction: column; position: relative;
+      overflow: hidden;
+    }
+    .sher-card::before {
+      content: '"';
+      position: absolute; top: 10px; right: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem; line-height: 1; color: rgba(122,50,40,.07);
+      pointer-events: none;
+    }
+    .sher-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .sher-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem; line-height: 1.9;
+      color: var(--ink); font-style: italic;
+      flex: 1; margin-bottom: 16px;
+    }
+    .sher-urdu {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 1rem; line-height: 2.2;
+      color: var(--ink); direction: rtl; text-align: right;
+      margin-bottom: 16px; flex: 1;
+    }
+    .sher-footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 12px; margin-top: auto;
+    }
+    .sher-poet {
+      display: flex; align-items: center; gap: 8px; cursor: pointer;
+    }
+    .sher-poet-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--paper2); display: flex;
+      align-items: center; justify-content: center;
+      font-size: .8rem; color: var(--ink-soft);
+      font-family: 'Playfair Display', serif;
+      flex-shrink: 0;
+    }
+    .sher-poet-name {
+      font-size: .88rem; color: var(--accent);
+      font-family: 'EB Garamond', serif;
+    }
+    .sher-theme-badge {
+      font-size: .72rem; letter-spacing: .06em;
+      text-transform: uppercase; background: var(--paper);
+      color: var(--ink-muted); border: 1px solid var(--border);
+      border-radius: 10px; padding: 2px 10px;
+    }
+    .sher-actions {
+      display: flex; gap: 6px; margin-top: 10px;
+      padding-top: 10px; border-top: 1px solid var(--border);
+    }
+    .sher-btn {
+      background: none; border: 1px solid var(--border);
+      border-radius: 20px; cursor: pointer;
+      font-family: 'EB Garamond', serif; font-size: .82rem;
+      color: var(--ink-soft); padding: 5px 12px;
+      display: flex; align-items: center; gap: 5px;
+      transition: var(--trans);
+    }
+    .sher-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .sher-btn.copied { background: var(--accent2); border-color: var(--accent2); color: #fff; }
+
+    /* ─── POET CARDS ─── */
+    .poet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .poet-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 20px 20px;
+      box-shadow: var(--shadow); cursor: pointer;
+      transition: var(--trans); text-align: center;
+    }
+    .poet-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+    .poet-avatar-lg {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--paper2); margin: 0 auto 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; border: 3px solid var(--border);
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+    }
+    .poet-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .poet-name-urdu {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: .9rem; color: var(--ink-muted);
+      direction: rtl; margin-bottom: 10px;
+    }
+    .poet-years {
+      font-size: .8rem; color: var(--ink-muted);
+      margin-bottom: 10px;
+    }
+    .poet-bio {
+      font-size: .88rem; color: var(--ink-soft);
+      line-height: 1.6; margin-bottom: 14px;
+    }
+    .poet-count {
+      display: inline-block; font-size: .75rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      background: var(--paper); color: var(--ink-muted);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 3px 12px;
+    }
+
+    /* ─── THEMES PAGE ─── */
+    .themes-hero {
+      background: linear-gradient(135deg, #f3ede0, #e9dfc8);
+      border-bottom: 1px solid var(--border);
+      padding: clamp(28px,5vw,56px) clamp(16px,4vw,48px);
+    }
+    .themes-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .themes-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem,4vw,2.5rem); font-weight: 700;
+      color: var(--ink); margin-bottom: 10px;
+    }
+    .themes-hero p { color: var(--ink-soft); font-size: 1.05rem; }
+
+    .theme-tab-bar {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .theme-tab {
+      background: var(--paper); border: 1px solid var(--border);
+      border-radius: 20px; cursor: pointer;
+      font-family: 'EB Garamond', serif; font-size: .95rem;
+      color: var(--ink-soft); padding: 7px 18px;
+      transition: var(--trans); white-space: nowrap;
+    }
+    .theme-tab:hover { border-color: var(--accent); color: var(--accent); }
+    .theme-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ─── POET DETAIL PAGE ─── */
+    .poet-detail-hero {
+      background: linear-gradient(135deg, #f3ede0, #e9dfc8);
+      border-bottom: 1px solid var(--border);
+      padding: clamp(32px,6vw,64px) clamp(16px,4vw,48px);
+    }
+    .poet-detail-hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; gap: 28px; align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .poet-detail-avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: var(--paper2); border: 3px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; flex-shrink: 0; color: var(--accent);
+      font-family: 'Playfair Display', serif;
+    }
+    .poet-detail-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem,4vw,2.2rem); font-weight: 700;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .poet-detail-info .urdu-name {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 1.2rem; color: var(--ink-muted); direction: rtl;
+      margin-bottom: 8px;
+    }
+    .poet-detail-info p {
+      color: var(--ink-soft); font-size: 1rem;
+      line-height: 1.7; max-width: 540px;
+    }
+    .back-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--accent); font-family: 'EB Garamond', serif;
+      font-size: 1rem; display: flex; align-items: center; gap: 6px;
+      padding: 0; margin-bottom: 20px; text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ─── SEARCH PAGE ─── */
+    .search-hero {
+      background: linear-gradient(135deg, #f3ede0, #e9dfc8);
+      border-bottom: 1px solid var(--border);
+      padding: clamp(28px,5vw,56px) clamp(16px,4vw,48px);
+    }
+    .search-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .search-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem,4vw,2.5rem); font-weight: 700;
+      color: var(--ink); margin-bottom: 18px;
+    }
+    .search-box {
+      display: flex; align-items: center;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 40px; padding: 4px 4px 4px 20px;
+      box-shadow: var(--shadow); max-width: 600px;
+      transition: var(--trans);
+    }
+    .search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(122,50,40,.1); }
+    .search-box input {
+      flex: 1; border: none; outline: none;
+      font-family: 'EB Garamond', serif; font-size: 1.05rem;
+      color: var(--ink); background: transparent; padding: 8px 0;
+    }
+    .search-box input::placeholder { color: var(--ink-muted); }
+    .search-box button {
+      background: var(--accent); color: #fff; border: none;
+      border-radius: 36px; cursor: pointer; padding: 9px 20px;
+      font-family: 'EB Garamond', serif; font-size: .95rem;
+      transition: var(--trans);
+    }
+    .search-box button:hover { background: #5e261e; }
+    .search-results-count {
+      margin-bottom: 18px;
+      font-size: .9rem; color: var(--ink-muted);
+    }
+    .no-results {
+      text-align: center; padding: 60px 20px;
+      color: var(--ink-muted);
+    }
+    .no-results .nr-icon { font-size: 3rem; display: block; margin-bottom: 14px; }
+    .no-results p { font-size: 1.05rem; }
+
+    /* ─── TOAST ─── */
+    #toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: var(--ink); color: #fff;
+      font-family: 'EB Garamond', serif; font-size: .95rem;
+      padding: 10px 24px; border-radius: 28px;
+      box-shadow: var(--shadow-lg); z-index: 9999;
+      transition: transform .3s ease, opacity .3s ease;
+      opacity: 0; pointer-events: none;
+      white-space: nowrap;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--paper2); border-top: 1px solid var(--border);
+      padding: 28px clamp(16px,4vw,48px);
+      text-align: center;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-logo {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: 1.6rem; color: var(--accent); margin-bottom: 8px;
+    }
+    footer p { font-size: .85rem; color: var(--ink-muted); line-height: 1.7; }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:600px) {
+      nav button { padding: 5px 10px; font-size: .9rem; }
+      .logo-divider, .logo-en { display: none; }
+      .shayari-grid { grid-template-columns: 1fr; }
+      .poet-grid { grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); }
+    }
+
+    /* divider */
+    .divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* random bg colors for theme chips on hover override */
+    .theme-chip[data-theme="ishq"]:hover  { background: #7a3228; border-color: #7a3228; }
+    .theme-chip[data-theme="gham"]:hover  { background: #3a4a6a; border-color: #3a4a6a; }
+    .theme-chip[data-theme="zindagi"]:hover { background: #4a6741; border-color: #4a6741; }
+    .theme-chip[data-theme="intezaar"]:hover { background: #6b5a2e; border-color: #6b5a2e; }
+    .theme-chip[data-theme="dost"]:hover  { background: #4a6741; border-color: #4a6741; }
+    .theme-chip[data-theme="waqt"]:hover  { background: #5a4a6a; border-color: #5a4a6a; }
+    .theme-chip[data-theme="khwab"]:hover { background: #3a5a6a; border-color: #3a5a6a; }
+    .theme-chip[data-theme="khud"]:hover  { background: #6a3a5a; border-color: #6a3a5a; }
+  </style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div id="toast">✓ Copied to clipboard</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" onclick="showPage('home')">
+      <span class="logo-urdu">قلب</span>
+      <span class="logo-divider"></span>
+      <span class="logo-en">Qalb</span>
+    </a>
+    <nav>
+      <button id="nav-home"   onclick="showPage('home')"   class="active">Home</button>
+      <button id="nav-themes" onclick="showPage('themes')">Themes</button>
+      <button id="nav-poets"  onclick="showPage('poets')">Poets</button>
+      <button id="nav-search" onclick="showPage('search')">Search</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <span class="hero-tag">Sher · Ghazal · Nazm</span>
+      <h1>The Poetry of the Heart</h1>
+      <p>Immerse yourself in the timeless words of Urdu and Hindi masters — Ghalib, Faiz, Mir, Iqbal, and more.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('themes')">Browse by Theme</button>
+        <button class="btn-outline" onclick="showPage('poets')">Explore Poets</button>
+      </div>
+
+      <!-- Sher of the Day -->
+      <div class="sotd-card">
+        <div class="sotd-label">Sher of the Day</div>
+        <div id="sotd-text" class="sher-text"></div>
+        <div class="sher-footer">
+          <div class="sher-poet" id="sotd-poet-link">
+            <div class="sher-poet-avatar" id="sotd-avatar"></div>
+            <span class="sher-poet-name" id="sotd-poet"></span>
+          </div>
+          <button class="sher-btn" onclick="copySher(this)" data-id="sotd">
+            <span>⧉</span> Copy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Browse Themes -->
+  <section style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Browse by <span>Theme</span></h2>
+        <button class="see-all" onclick="showPage('themes')">See all →</button>
+      </div>
+      <div class="theme-grid" id="home-theme-grid"></div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- Featured Shayari -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Featured <span>Shayari</span></h2>
+        <button class="see-all" onclick="showPage('search')">Browse all →</button>
+      </div>
+      <div class="shayari-grid" id="home-featured-grid"></div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- Poets -->
+  <section style="background: var(--paper);">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Beloved <span>Poets</span></h2>
+        <button class="see-all" onclick="showPage('poets')">All poets →</button>
+      </div>
+      <div class="poet-grid" id="home-poets-grid"></div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ══════════════════════════════════════════
+     THEMES PAGE
+══════════════════════════════════════════ -->
+<div id="page-themes" class="page">
+  <div class="themes-hero">
+    <div class="themes-hero-inner">
+      <h2>Browse by <em>Theme</em></h2>
+      <p>Select a theme to discover shayari that speaks to that feeling.</p>
+    </div>
+  </div>
+  <section>
+    <div class="section-inner">
+      <div class="theme-tab-bar" id="themes-tab-bar"></div>
+      <div class="shayari-grid" id="themes-shayari-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     POETS PAGE
+══════════════════════════════════════════ -->
+<div id="page-poets" class="page">
+  <div class="themes-hero">
+    <div class="themes-hero-inner">
+      <h2>The <em>Poets</em></h2>
+      <p>Voices that have shaped Urdu and Hindi literature across centuries.</p>
+    </div>
+  </div>
+  <section>
+    <div class="section-inner">
+      <div class="poet-grid" id="poets-main-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     POET DETAIL PAGE
+══════════════════════════════════════════ -->
+<div id="page-poet-detail" class="page">
+  <div class="poet-detail-hero">
+    <div class="poet-detail-hero-inner">
+      <div>
+        <button class="back-btn" onclick="showPage('poets')">← Back to Poets</button>
+        <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+          <div class="poet-detail-avatar" id="detail-avatar"></div>
+          <div class="poet-detail-info">
+            <h2 id="detail-name"></h2>
+            <div class="urdu-name" id="detail-urdu"></div>
+            <div style="font-size:.85rem;color:var(--ink-muted);margin-bottom:10px;" id="detail-years"></div>
+            <p id="detail-bio"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title" id="detail-section-title">Shayari</h2>
+      </div>
+      <div class="shayari-grid" id="detail-shayari-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SEARCH PAGE
+══════════════════════════════════════════ -->
+<div id="page-search" class="page">
+  <div class="search-hero">
+    <div class="search-hero-inner">
+      <h2>Search <em>Shayari</em></h2>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search by poet, theme, or a word from a sher…"
+          oninput="runSearch()" onkeydown="if(event.key==='Enter')runSearch()" />
+        <button onclick="runSearch()">Search</button>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="section-inner">
+      <div id="search-results-count" class="search-results-count"></div>
+      <div class="shayari-grid" id="search-results-grid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">قلب</div>
+    <p>Qalb — A tribute to Urdu and Hindi poetry.<br/>
+    Words that have endured centuries, hearts that still listen.</p>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  DATA
+// ══════════════════════════════════════════════════════
+
+const THEMES = [
+  { id:'ishq',     en:'Ishq',      urdu:'عشق',      emoji:'🌹', label:'Love' },
+  { id:'gham',     en:'Gham',      urdu:'غم',        emoji:'🌧️', label:'Sorrow' },
+  { id:'zindagi',  en:'Zindagi',   urdu:'زندگی',     emoji:'🌿', label:'Life' },
+  { id:'intezaar', en:'Intezaar',  urdu:'انتظار',    emoji:'⏳', label:'Longing' },
+  { id:'dost',     en:'Dost',      urdu:'دوست',      emoji:'🤝', label:'Friendship' },
+  { id:'waqt',     en:'Waqt',      urdu:'وقت',       emoji:'🕰️', label:'Time' },
+  { id:'khwab',    en:'Khwab',     urdu:'خواب',      emoji:'🌙', label:'Dreams' },
+  { id:'khud',     en:'Khud',      urdu:'خود',       emoji:'🪞', label:'Self' },
+];
+
+const POETS = [
+  {
+    id:'ghalib', initials:'G',
+    en:'Mirza Ghalib', urdu:'مرزا غالب',
+    years:'1797 – 1869',
+    bio:'The undisputed master of Urdu ghazal, Ghalib\'s verse weaves together the pain of love, wit, and profound philosophy. Born in Agra, he spent most of his life in Delhi, leaving behind a treasury of language that endures to this day.',
+  },
+  {
+    id:'faiz', initials:'F',
+    en:'Faiz Ahmed Faiz', urdu:'فیض احمد فیض',
+    years:'1911 – 1984',
+    bio:'A Marxist poet and activist, Faiz blended the personal and political with extraordinary grace. His verse transformed the classical idioms of Urdu poetry into instruments of social protest and deep longing. Recipient of the Lenin Peace Prize.',
+  },
+  {
+    id:'mir', initials:'M',
+    en:'Mir Taqi Mir', urdu:'میر تقی میر',
+    years:'1723 – 1810',
+    bio:'Often called "Khuda-e-Sukhan" (God of Poetry), Mir is one of the earliest and most revered figures of Urdu literature. His ghazals carry a rare simplicity that cuts to the bone, often reflecting personal grief and the collapse of Mughal Delhi.',
+  },
+  {
+    id:'iqbal', initials:'I',
+    en:'Allama Iqbal', urdu:'علامہ اقبال',
+    years:'1877 – 1938',
+    bio:'Philosopher-poet and the spiritual father of Pakistan, Iqbal wrote in both Urdu and Persian. His poetry is a call to self-awakening, urging the Muslim world to rediscover its inner strength — encapsulated in his concept of "Khudi" (selfhood).',
+  },
+  {
+    id:'faraz', initials:'F',
+    en:'Ahmad Faraz', urdu:'احمد فراز',
+    years:'1931 – 2008',
+    bio:'One of the most popular Urdu poets of the 20th century, Faraz\'s verse is celebrated for its romantic intensity and lyrical beauty. He combined classical tradition with modern sensibility, and his ghazals have been widely performed by leading classical singers.',
+  },
+  {
+    id:'jaun', initials:'J',
+    en:'Jaun Elia', urdu:'جون ایلیا',
+    years:'1931 – 2002',
+    bio:'A poet of existential despair, dark wit, and radical honesty, Jaun Elia is a cult figure in contemporary Urdu poetry. A scholar of Arabic, Persian, and Sanskrit, his verse is raw, deeply personal, and unlike anything before or after him.',
+  },
+  {
+    id:'bashir', initials:'B',
+    en:'Bashir Badr', urdu:'بشیر بدر',
+    years:'1935 – present',
+    bio:'A living legend of Urdu poetry, Bashir Badr is celebrated for his simple yet profoundly moving verse. His shayari speaks to ordinary human experiences — love, separation, and the quiet joys of life — in a language everyone can feel.',
+  },
+  {
+    id:'sahir', initials:'S',
+    en:'Sahir Ludhianvi', urdu:'ساحر لدھیانوی',
+    years:'1921 – 1980',
+    bio:'One of Bollywood\'s most celebrated lyricists and a voice of political conscience, Sahir infused popular film music with serious literary quality. His work ranged from romantic longing to fierce social criticism, always in a language that touched the masses.',
+  },
+];
+
+const SHAYARI = [
+  // ── GHALIB ──────────────────────────────────────
+  {
+    id:1, poet:'ghalib', theme:'ishq',
+    lines:[
+      'Ishq par zor nahin, hai yeh woh aatish "Ghalib"',
+      'Jo lagaaye na lage aur bujhaaye na bujhe',
+    ],
+    urdu:['عشق پر زور نہیں، ہے یہ وہ آتش غالب','جو لگائے نہ لگے، اور بجھائے نہ بجھے']
+  },
+  {
+    id:2, poet:'ghalib', theme:'gham',
+    lines:[
+      'Hazaaron khwaishein aisi ke har khwaish pe dam nikle',
+      'Bahut nikle mere armaan, lekin phir bhi kam nikle',
+    ],
+    urdu:['ہزاروں خواہشیں ایسی کہ ہر خواہش پہ دم نکلے','بہت نکلے میرے ارمان، لیکن پھر بھی کم نکلے']
+  },
+  {
+    id:3, poet:'ghalib', theme:'zindagi',
+    lines:[
+      'Hum ko maloom hai jannat ki haqeeqat lekin',
+      'Dil ke khush rakhne ko, Ghalib, yeh khayal accha hai',
+    ],
+    urdu:['ہم کو معلوم ہے جنت کی حقیقت لیکن','دل کے خوش رکھنے کو، غالب، یہ خیال اچھا ہے']
+  },
+  {
+    id:4, poet:'ghalib', theme:'gham',
+    lines:[
+      'Dil hi toh hai na sang-o-khisht, dard se bhar na aaye kyun',
+      'Royenge hum hazaar baar, koi humein sataye kyun',
+    ],
+    urdu:['دل ہی تو ہے نہ سنگ و خشت، درد سے بھر نہ آئے کیوں','روئیں گے ہم ہزار بار، کوئی ہمیں ستائے کیوں']
+  },
+  {
+    id:5, poet:'ghalib', theme:'ishq',
+    lines:[
+      'Unke dekhe se jo aa jaati hai munh par raunaq',
+      'Woh samajhte hain ke beemaar ka haal accha hai',
+    ],
+    urdu:['ان کے دیکھے سے جو آ جاتی ہے منہ پر رونق','وہ سمجھتے ہیں کہ بیمار کا حال اچھا ہے']
+  },
+  {
+    id:6, poet:'ghalib', theme:'waqt',
+    lines:[
+      'Qaid-e-hayaat-o-band-e-gham, asl mein dono ek hain',
+      'Maut se pehle aadmi gham se nijaat paaye kyun',
+    ],
+    urdu:['قید حیات و بند غم، اصل میں دونوں ایک ہیں','موت سے پہلے آدمی غم سے نجات پائے کیوں']
+  },
+
+  // ── FAIZ ─────────────────────────────────────────
+  {
+    id:7, poet:'faiz', theme:'ishq',
+    lines:[
+      'Mujh se pehli si mohabbat mere mehboob na maang',
+      'Maine socha tha ke tu hai toh darakhshaan hai hayaat',
+    ],
+    urdu:['مجھ سے پہلی سی محبت مرے محبوب نہ مانگ','میں نے سوچا تھا کہ تو ہے تو درخشاں ہے حیات']
+  },
+  {
+    id:8, poet:'faiz', theme:'intezaar',
+    lines:[
+      'Kab yaad mein tera saath nahin',
+      'Kab haath mein tera haath nahin',
+    ],
+    urdu:['کب یاد میں تیرا ساتھ نہیں','کب ہاتھ میں تیرا ہاتھ نہیں']
+  },
+  {
+    id:9, poet:'faiz', theme:'zindagi',
+    lines:[
+      'Yeh daagh daagh ujaala, yeh shab-gazeeda seher',
+      'Woh intezaar tha jis ka, yeh woh seher toh nahin',
+    ],
+    urdu:['یہ داغ داغ اجالا، یہ شب گزیدہ سحر','وہ انتظار تھا جس کا، یہ وہ سحر تو نہیں']
+  },
+  {
+    id:10, poet:'faiz', theme:'gham',
+    lines:[
+      'Gulon mein rang bhare, baad-e-naubahaar chale',
+      'Chale bhi aao ke gulshan ka karobaar chale',
+    ],
+    urdu:['گلوں میں رنگ بھرے، باد نوبہار چلے','چلے بھی آؤ کہ گلشن کا کاروبار چلے']
+  },
+  {
+    id:11, poet:'faiz', theme:'ishq',
+    lines:[
+      'Aaj bazaar mein pa-ba-joulaan chalo',
+      'Dil-e-naakaama, gardan-e-saaz-e-shauq',
+    ],
+    urdu:['آج بازار میں پا بہ جولاں چلو','دل نکاما، گردن سر بہ آغوش شوق']
+  },
+
+  // ── MIR ──────────────────────────────────────────
+  {
+    id:12, poet:'mir', theme:'gham',
+    lines:[
+      'Ibtida-e-ishq hai, rota hai kya',
+      'Aage aage dekhiye, hota hai kya',
+    ],
+    urdu:['ابتدائے عشق ہے، روتا ہے کیا','آگے آگے دیکھیے ہوتا ہے کیا']
+  },
+  {
+    id:13, poet:'mir', theme:'ishq',
+    lines:[
+      'Naseem-e-subah aa aur dil mein baat kar',
+      'Iss waqt ke gulshan mein khilti hai kali',
+    ],
+    urdu:['نسیم صبح آ اور دل میں بات کر','اس وقت کے گلشن میں کھلتی ہے کلی']
+  },
+  {
+    id:14, poet:'mir', theme:'zindagi',
+    lines:[
+      'Zindagi kya hai anasir mein zuhoor-e-tarteeb',
+      'Maut kya hai inhi ajza ka pareshan hona',
+    ],
+    urdu:['زندگی کیا ہے عناصر میں ظہور ترتیب','موت کیا ہے انہی اجزاء کا پریشاں ہونا']
+  },
+  {
+    id:15, poet:'mir', theme:'intezaar',
+    lines:[
+      'Dil ke aaine mein hai tasveer-e-yaar',
+      'Jab zara gardan jhukaai dekh li',
+    ],
+    urdu:['دل کے آئینے میں ہے تصویر یار','جب ذرا گردن جھکائی دیکھ لی']
+  },
+
+  // ── IQBAL ─────────────────────────────────────────
+  {
+    id:16, poet:'iqbal', theme:'khud',
+    lines:[
+      'Khudi ko kar buland itna ke har taqder se pehle',
+      'Khuda bande se khud pooche: bata, teri raza kya hai',
+    ],
+    urdu:['خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے','خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے']
+  },
+  {
+    id:17, poet:'iqbal', theme:'khud',
+    lines:[
+      'Tu shaheen hai, parwaz hai kaam tera',
+      'Tere saamne aasmaan aur bhi hain',
+    ],
+    urdu:['تو شاہیں ہے، پرواز ہے کام تیرا','تیرے سامنے آسمان اور بھی ہیں']
+  },
+  {
+    id:18, poet:'iqbal', theme:'zindagi',
+    lines:[
+      'Sitaaron se aage jahaan aur bhi hain',
+      'Abhi ishq ke imtehaan aur bhi hain',
+    ],
+    urdu:['ستاروں سے آگے جہاں اور بھی ہیں','ابھی عشق کے امتحان اور بھی ہیں']
+  },
+  {
+    id:19, poet:'iqbal', theme:'waqt',
+    lines:[
+      'Waqt-e-furshat hai kahaan, kaam abhi baaki hai',
+      'Noor-e-tauheed ka etmlaam abhi baaki hai',
+    ],
+    urdu:['وقت فرصت ہے کہاں، کام ابھی باقی ہے','نور توحید کا اتمام ابھی باقی ہے']
+  },
+
+  // ── AHMAD FARAZ ───────────────────────────────────
+  {
+    id:20, poet:'faraz', theme:'ishq',
+    lines:[
+      'Ranjish hi sahi, dil hi dukhane ke liye aa',
+      'Aa phir se mujhe chhod ke jaane ke liye aa',
+    ],
+    urdu:['رنجش ہی سہی، دل ہی دکھانے کے لیے آ','آ پھر سے مجھے چھوڑ کے جانے کے لیے آ']
+  },
+  {
+    id:21, poet:'faraz', theme:'intezaar',
+    lines:[
+      'Ab ke hum bichhde toh shayad kabhi khwabon mein milein',
+      'Jis tarah sukhe hue phool kitabon mein milein',
+    ],
+    urdu:['اب کے ہم بچھڑے تو شاید کبھی خوابوں میں ملیں','جس طرح سوکھے ہوئے پھول کتابوں میں ملیں']
+  },
+  {
+    id:22, poet:'faraz', theme:'gham',
+    lines:[
+      'Tujhe bhoolne ki koshish mein bhool jaata hoon',
+      'Bahut zyada yaad aata hai jab bhool jaata hoon',
+    ],
+    urdu:['تجھے بھولنے کی کوشش میں بھول جاتا ہوں','بہت زیادہ یاد آتا ہے جب بھول جاتا ہوں']
+  },
+  {
+    id:23, poet:'faraz', theme:'khwab',
+    lines:[
+      'Guzar gaye woh din jo tere saath the Faraz',
+      'Ab teri yaad mein din raat guzarate hain',
+    ],
+    urdu:['گزر گئے وہ دن جو تیرے ساتھ تھے فراز','اب تیری یاد میں دن رات گزارتے ہیں']
+  },
+
+  // ── JAUN ELIA ─────────────────────────────────────
+  {
+    id:24, poet:'jaun', theme:'khud',
+    lines:[
+      'Main bhi bahut ajeeb hoon, kitna ajeeb hoon main',
+      'Jo tujhse door bhi hoon, tere qareeb bhi hoon',
+    ],
+    urdu:['میں بھی بہت عجیب ہوں، کتنا عجیب ہوں میں','جو تجھ سے دور بھی ہوں تیرے قریب بھی ہوں']
+  },
+  {
+    id:25, poet:'jaun', theme:'intezaar',
+    lines:[
+      'Yeh soch kar ke woh aayenge aur jaayenge',
+      'Yeh umr beet gayi intezaar karte karte',
+    ],
+    urdu:['یہ سوچ کر کہ وہ آئیں گے اور جائیں گے','یہ عمر بیت گئی انتظار کرتے کرتے']
+  },
+  {
+    id:26, poet:'jaun', theme:'gham',
+    lines:[
+      'Shayad ke apni rooh ki duniya mein ghum hoon main',
+      'Main hoon toh sahi, lekin kahaan hoon main',
+    ],
+    urdu:['شاید کہ اپنی روح کی دنیا میں گم ہوں میں','میں ہوں تو سہی، لیکن کہاں ہوں میں']
+  },
+  {
+    id:27, poet:'jaun', theme:'zindagi',
+    lines:[
+      'Bewajah jeene ka yeh silsila tha',
+      'Mujhe khud se bhi mila tha, khud se bhi gila tha',
+    ],
+    urdu:['بے وجہ جینے کا یہ سلسلہ تھا','مجھے خود سے بھی ملا تھا، خود سے بھی گلہ تھا']
+  },
+
+  // ── BASHIR BADR ───────────────────────────────────
+  {
+    id:28, poet:'bashir', theme:'dost',
+    lines:[
+      'Koi haath bhi na milaayega jo gale miloge tum aakar',
+      'Tumko kasam hai apni, mujhse milne ki aadat chhodna mat',
+    ],
+    urdu:['کوئی ہاتھ بھی نہ ملائے گا جو گلے ملو گے تم آ کر','تمہیں قسم ہے اپنی مجھ سے ملنے کی عادت چھوڑنا مت']
+  },
+  {
+    id:29, poet:'bashir', theme:'ishq',
+    lines:[
+      'Use dhundta hoon main har ik chehra mein ab bhi',
+      'Woh rehta hai mere andar, bahar bhi',
+    ],
+    urdu:['اسے ڈھونڈتا ہوں میں ہر اک چہرے میں اب بھی','وہ رہتا ہے میرے اندر، باہر بھی']
+  },
+  {
+    id:30, poet:'bashir', theme:'waqt',
+    lines:[
+      'Woh log bahut khush naseeb the Bashir',
+      'Jo ishq ko kaam se fursat mili toh kiye',
+    ],
+    urdu:['وہ لوگ بہت خوش نصیب تھے بشیر','جو عشق کو کام سے فرصت ملی تو کئے']
+  },
+
+  // ── SAHIR ─────────────────────────────────────────
+  {
+    id:31, poet:'sahir', theme:'zindagi',
+    lines:[
+      'Main pal do pal ka shayar hoon, pal do pal meri kahani hai',
+      'Pal do pal meri hasti hai, pal do pal meri jawaani hai',
+    ],
+    urdu:['میں پل دو پل کا شاعر ہوں پل دو پل میری کہانی ہے','پل دو پل میری ہستی ہے پل دو پل میری جوانی ہے']
+  },
+  {
+    id:32, poet:'sahir', theme:'khwab',
+    lines:[
+      'Woh subah kabhi toh aayegi, in raaton ke dum ghutne walon',
+      'Uss waqt ke aane tak ke liye, aao meri baahon mein aao',
+    ],
+    urdu:['وہ صبح کبھی تو آئے گی، ان راتوں کے دم گھٹنے والوں','اس وقت کے آنے تک کے لیے، آؤ مری باہوں میں آؤ']
+  },
+  {
+    id:33, poet:'sahir', theme:'gham',
+    lines:[
+      'Jinhe naaz hai Hind par woh kahaan hain',
+      'Kahaan hain, kahaan hain, kahaan hain',
+    ],
+    urdu:['جنہیں ناز ہے ہند پر وہ کہاں ہیں','کہاں ہیں، کہاں ہیں، کہاں ہیں']
+  },
+  {
+    id:34, poet:'sahir', theme:'ishq',
+    lines:[
+      'Tum mujhe yoon bhula na paaoge',
+      'Jab kabhi bhi sunaoge gaane koi, yaad aa jaaunga main',
+    ],
+    urdu:['تم مجھے یوں بھلا نہ پاؤ گے','جب کبھی بھی سناؤ گے گانے کوئی، یاد آ جاؤں گا میں']
+  },
+
+  // ── More Ghalib & Faiz ───────────────────────────
+  {
+    id:35, poet:'ghalib', theme:'khwab',
+    lines:[
+      'Hua hai shah ka musaahib, phire hai itrata',
+      'Wagar na sheher mein "Ghalib" ki aabroo kya hai',
+    ],
+    urdu:['ہوا ہے شاہ کا مصاحب پھرے ہے اتراتا','وگر نہ شہر میں غالب کی آبرو کیا ہے']
+  },
+  {
+    id:36, poet:'faiz', theme:'khwab',
+    lines:[
+      'Tere lab aaye hain mere khwaab mein',
+      'Jaise phool khilte hain baadal ke baad',
+    ],
+    urdu:['تیرے لب آئے ہیں میرے خواب میں','جیسے پھول کھلتے ہیں بادل کے بعد']
+  },
+  {
+    id:37, poet:'faraz', theme:'dost',
+    lines:[
+      'Dost hote hain jab hum raaz-e-dil kehte hain',
+      'Aur dushman bhi wahi bante hain jab dard milte hain',
+    ],
+    urdu:['دوست ہوتے ہیں جب ہم راز دل کہتے ہیں','اور دشمن بھی وہی بنتے ہیں جب درد ملتے ہیں']
+  },
+  {
+    id:38, poet:'iqbal', theme:'khwab',
+    lines:[
+      'Khwaab tha jo kuch ke dekha, jo suna afsaana tha',
+      'Zindagi ke daag ne seena mera viraan kiya',
+    ],
+    urdu:['خواب تھا جو کچھ کہ دیکھا جو سنا افسانہ تھا','زندگی کے داغ نے سینہ مرا ویران کیا']
+  },
+  {
+    id:39, poet:'mir', theme:'khud',
+    lines:[
+      'Tha khak mein milne ka, par dil ne yeh chaaha',
+      'Haste hue jaata koi gham khaane ki jagah',
+    ],
+    urdu:['تھا خاک میں ملنے کا پر دل نے یہ چاہا','ہنستے ہوئے جاتا کوئی غم کھانے کی جگہ']
+  },
+  {
+    id:40, poet:'bashir', theme:'intezaar',
+    lines:[
+      'Aaoge toh phir aisi raat hogi',
+      'Ke chaand sitaare bhi jaag jaayenge',
+    ],
+    urdu:['آؤ گے تو پھر ایسی رات ہو گی','کہ چاند ستارے بھی جاگ جائیں گے']
+  },
+];
+
+// ══════════════════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════════════════
+
+function getPoet(id) { return POETS.find(p => p.id === id); }
+function getTheme(id) { return THEMES.find(t => t.id === id); }
+
+function sherText(s) { return s.lines.join('\n'); }
+
+function sherTextFull(s) {
+  return s.lines.join('\n') + '\n\n— ' + getPoet(s.poet).en;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function copySher(btn) {
+  const id = btn.dataset.id;
+  let text;
+  if (id === 'sotd') {
+    const sotd = getSotd();
+    text = sherTextFull(sotd);
+  } else {
+    const s = SHAYARI.find(x => x.id === parseInt(id));
+    text = sherTextFull(s);
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.innerHTML = '<span>✓</span> Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<span>⧉</span> Copy';
+    }, 2000);
+    showToast('✓ Copied to clipboard');
+  });
+}
+
+function shareNative(id) {
+  const s = SHAYARI.find(x => x.id === parseInt(id));
+  const text = sherTextFull(s);
+  if (navigator.share) {
+    navigator.share({ text });
+  } else {
+    navigator.clipboard.writeText(text);
+    showToast('📋 Copied for sharing');
+  }
+}
+
+function getSotd() {
+  const today = new Date();
+  const idx = (today.getDate() + today.getMonth() * 31) % SHAYARI.length;
+  return SHAYARI[idx];
+}
+
+// ══════════════════════════════════════════════════════
+//  CARD BUILDERS
+// ══════════════════════════════════════════════════════
+
+function buildSherCard(s, showUrdu) {
+  const poet = getPoet(s.poet);
+  const theme = getTheme(s.theme);
+  const lines = s.lines.map(l => `<span>${l}</span>`).join('<br/>');
+  const initials = poet ? poet.initials : '?';
+  return `
+    <div class="sher-card">
+      <div class="${showUrdu ? 'sher-urdu' : 'sher-text'}">
+        ${showUrdu
+          ? s.urdu.join('<br/>')
+          : lines
+        }
+      </div>
+      <div class="sher-footer">
+        <div class="sher-poet" onclick="showPoetDetail('${s.poet}')">
+          <div class="sher-poet-avatar">${initials}</div>
+          <span class="sher-poet-name">${poet ? poet.en : ''}</span>
+        </div>
+        ${theme ? `<span class="sher-theme-badge">${theme.en}</span>` : ''}
+      </div>
+      <div class="sher-actions">
+        <button class="sher-btn" onclick="copySher(this)" data-id="${s.id}">
+          <span>⧉</span> Copy
+        </button>
+        <button class="sher-btn" onclick="shareNative(${s.id})">
+          <span>↗</span> Share
+        </button>
+        <button class="sher-btn" onclick="toggleScript(this, ${s.id})">
+          <span>اردو</span>
+        </button>
+      </div>
+    </div>`;
+}
+
+const scriptState = {};
+function toggleScript(btn, id) {
+  scriptState[id] = !scriptState[id];
+  const card = btn.closest('.sher-card');
+  const s = SHAYARI.find(x => x.id === id);
+  const textDiv = card.querySelector('.sher-text, .sher-urdu');
+  if (scriptState[id]) {
+    textDiv.className = 'sher-urdu';
+    textDiv.innerHTML = s.urdu.join('<br/>');
+    btn.innerHTML = '<span>A</span> Roman';
+  } else {
+    textDiv.className = 'sher-text';
+    textDiv.innerHTML = s.lines.map(l => `<span>${l}</span>`).join('<br/>');
+    btn.innerHTML = '<span>اردو</span>';
+  }
+}
+
+// ══════════════════════════════════════════════════════
+//  PAGE NAVIGATION
+// ══════════════════════════════════════════════════════
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const navBtn = document.getElementById('nav-' + id);
+  if (navBtn) navBtn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showPoetDetail(poetId) {
+  const poet = getPoet(poetId);
+  if (!poet) return;
+  document.getElementById('detail-avatar').textContent = poet.initials;
+  document.getElementById('detail-name').textContent = poet.en;
+  document.getElementById('detail-urdu').textContent = poet.urdu;
+  document.getElementById('detail-years').textContent = poet.years;
+  document.getElementById('detail-bio').textContent = poet.bio;
+  document.getElementById('detail-section-title').innerHTML =
+    `Shayari by <em style="color:var(--accent)">${poet.en}</em>`;
+
+  const grid = document.getElementById('detail-shayari-grid');
+  const items = SHAYARI.filter(s => s.poet === poetId);
+  grid.innerHTML = items.map(s => buildSherCard(s, false)).join('');
+
+  // deactivate nav
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-poet-detail').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ══════════════════════════════════════════════════════
+//  SEARCH
+// ══════════════════════════════════════════════════════
+
+function runSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const grid = document.getElementById('search-results-grid');
+  const count = document.getElementById('search-results-count');
+
+  if (!q) {
+    count.textContent = 'Type something to search…';
+    grid.innerHTML = '';
+    return;
+  }
+
+  const results = SHAYARI.filter(s => {
+    const poet = getPoet(s.poet);
+    const theme = getTheme(s.theme);
+    return (
+      s.lines.some(l => l.toLowerCase().includes(q)) ||
+      (poet && poet.en.toLowerCase().includes(q)) ||
+      (theme && (theme.en.toLowerCase().includes(q) || theme.label.toLowerCase().includes(q))) ||
+      s.urdu.some(u => u.includes(q))
+    );
+  });
+
+  count.textContent = results.length
+    ? `${results.length} sher found for "${q}"`
+    : '';
+
+  if (results.length === 0) {
+    grid.innerHTML = `<div class="no-results" style="grid-column:1/-1">
+      <span class="nr-icon">🔍</span>
+      <p>No shayari found for <strong>"${q}"</strong>.<br/>Try a poet name, theme, or any word from a sher.</p>
+    </div>`;
+  } else {
+    grid.innerHTML = results.map(s => buildSherCard(s, false)).join('');
+  }
+}
+
+// ══════════════════════════════════════════════════════
+//  THEME PAGE
+// ══════════════════════════════════════════════════════
+
+let activeTheme = THEMES[0].id;
+
+function renderThemePage() {
+  const bar = document.getElementById('themes-tab-bar');
+  bar.innerHTML = THEMES.map(t =>
+    `<button class="theme-tab ${t.id === activeTheme ? 'active' : ''}"
+      onclick="selectTheme('${t.id}')">${t.emoji} ${t.en}</button>`
+  ).join('');
+  renderThemeGrid();
+}
+
+function selectTheme(id) {
+  activeTheme = id;
+  document.querySelectorAll('.theme-tab').forEach(b => {
+    b.classList.toggle('active', b.textContent.includes(THEMES.find(t=>t.id===id).en));
+  });
+  renderThemeGrid();
+}
+
+function renderThemeGrid() {
+  const items = SHAYARI.filter(s => s.theme === activeTheme);
+  document.getElementById('themes-shayari-grid').innerHTML =
+    items.map(s => buildSherCard(s, false)).join('');
+}
+
+// ══════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════
+
+function initHome() {
+  // Sher of the day
+  const sotd = getSotd();
+  document.getElementById('sotd-text').innerHTML =
+    sotd.lines.map(l => `<span>${l}</span>`).join('<br/>');
+  const poet = getPoet(sotd.poet);
+  document.getElementById('sotd-avatar').textContent = poet.initials;
+  document.getElementById('sotd-poet').textContent = poet.en;
+  document.getElementById('sotd-poet-link').onclick = () => showPoetDetail(sotd.poet);
+
+  // Theme grid (home)
+  document.getElementById('home-theme-grid').innerHTML = THEMES.map(t =>
+    `<div class="theme-chip" data-theme="${t.id}" onclick="showPage('themes');selectTheme('${t.id}');renderThemePage()">
+      <span class="theme-chip-emoji">${t.emoji}</span>
+      <span class="theme-chip-en">${t.en} <small style="font-weight:400;font-size:.8em">· ${t.label}</small></span>
+      <span class="theme-chip-urdu">${t.urdu}</span>
+    </div>`
+  ).join('');
+
+  // Featured (random 6)
+  const featured = [...SHAYARI].sort(() => 0.5 - Math.random()).slice(0, 6);
+  document.getElementById('home-featured-grid').innerHTML =
+    featured.map(s => buildSherCard(s, false)).join('');
+
+  // Poets (home)
+  document.getElementById('home-poets-grid').innerHTML = POETS.map(p => `
+    <div class="poet-card" onclick="showPoetDetail('${p.id}')">
+      <div class="poet-avatar-lg">${p.initials}</div>
+      <div class="poet-name">${p.en}</div>
+      <div class="poet-name-urdu">${p.urdu}</div>
+      <div class="poet-years">${p.years}</div>
+      <span class="poet-count">${SHAYARI.filter(s=>s.poet===p.id).length} sher</span>
+    </div>`
+  ).join('');
+}
+
+function initPoets() {
+  document.getElementById('poets-main-grid').innerHTML = POETS.map(p => `
+    <div class="poet-card" onclick="showPoetDetail('${p.id}')">
+      <div class="poet-avatar-lg">${p.initials}</div>
+      <div class="poet-name">${p.en}</div>
+      <div class="poet-name-urdu">${p.urdu}</div>
+      <div class="poet-years">${p.years}</div>
+      <div class="poet-bio">${p.bio.slice(0,100)}…</div>
+      <span class="poet-count">${SHAYARI.filter(s=>s.poet===p.id).length} sher</span>
+    </div>`
+  ).join('');
+}
+
+// ── Nav click also renders pages lazily ──
+document.getElementById('nav-themes').addEventListener('click', () => {
+  renderThemePage();
+});
+
+// Init everything on load
+initHome();
+initPoets();
+renderThemePage();
+
+// Pre-populate search with a hint
+document.getElementById('search-results-count').textContent = 'Type a poet name, theme, or any word…';
+</script>
+</body>
+</html>
