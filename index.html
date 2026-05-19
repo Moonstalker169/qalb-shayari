@@ -1380,4 +1380,94 @@ function renderThemeGrid() {
     items.map(s => buildSherCard(s, false)).join('');
 }
 
-// ══════════════════════════════════════════════════�
+
+// ══════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════
+
+function initHome() {
+  const sotd = getSotd();
+  document.getElementById('sotd-text').innerHTML =
+    sotd.lines.map(l => `<span>${l}</span>`).join('<br/>');
+  const poet = getPoet(sotd.poet);
+  document.getElementById('sotd-avatar').textContent = poet.initials;
+  document.getElementById('sotd-poet').textContent = poet.en;
+  document.getElementById('sotd-poet-link').onclick = () => showPoetDetail(sotd.poet);
+
+  document.getElementById('home-theme-grid').innerHTML = THEMES.map(t =>
+    `<div class="theme-chip" data-theme="${t.id}" onclick="showPage('themes');selectTheme('${t.id}');renderThemePage()">
+      <span class="theme-chip-emoji">${t.emoji}</span>
+      <span class="theme-chip-en">${t.en} <small style="font-weight:400;font-size:.8em">· ${t.label}</small></span>
+      <span class="theme-chip-urdu">${t.urdu}</span>
+    </div>`
+  ).join('');
+
+  const featured = [...SHAYARI].sort(() => 0.5 - Math.random()).slice(0, 6);
+  document.getElementById('home-featured-grid').innerHTML =
+    featured.map(s => buildSherCard(s, false)).join('');
+
+  document.getElementById('home-poets-grid').innerHTML = POETS.map(p => `
+    <div class="poet-card" onclick="showPoetDetail('${p.id}')">
+      <div class="poet-avatar-lg">${p.initials}</div>
+      <div class="poet-name">${p.en}</div>
+      <div class="poet-name-urdu">${p.urdu}</div>
+      <div class="poet-years">${p.years}</div>
+      <span class="poet-count">${SHAYARI.filter(s=>s.poet===p.id).length} sher</span>
+    </div>`
+  ).join('');
+}
+
+function initPoets() {
+  document.getElementById('poets-main-grid').innerHTML = POETS.map(p => `
+    <div class="poet-card" onclick="showPoetDetail('${p.id}')">
+      <div class="poet-avatar-lg">${p.initials}</div>
+      <div class="poet-name">${p.en}</div>
+      <div class="poet-name-urdu">${p.urdu}</div>
+      <div class="poet-years">${p.years}</div>
+      <div class="poet-bio">${p.bio.slice(0,100)}…</div>
+      <span class="poet-count">${SHAYARI.filter(s=>s.poet===p.id).length} sher</span>
+    </div>`
+  ).join('');
+}
+
+document.getElementById('nav-themes').addEventListener('click', () => {
+  renderThemePage();
+});
+
+initHome();
+initPoets();
+renderThemePage();
+
+document.getElementById('search-results-count').textContent = 'Type a poet name, theme, or any word…';
+</script>
+
+<!-- BOTTOM NAV (mobile only) -->
+<nav class="bottom-nav" id="bottom-nav" aria-label="Mobile navigation">
+  <div class="bottom-nav-inner">
+    <button class="bn-btn active" id="bn-home" onclick="showPage('home')">
+      <span class="bn-icon">🏠</span>Home
+    </button>
+    <button class="bn-btn" id="bn-themes" onclick="showPage('themes')">
+      <span class="bn-icon">🎭</span>Themes
+    </button>
+    <button class="bn-btn" id="bn-poets" onclick="showPage('poets')">
+      <span class="bn-icon">✌️</span>Poets
+    </button>
+    <button class="bn-btn" id="bn-search" onclick="showPage('search')">
+      <span class="bn-icon">🔍</span>Search
+    </button>
+  </div>
+</nav>
+
+<!-- PWA Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(r => console.log('SW registered:', r.scope))
+        .catch(e => console.log('SW error:', e));
+    });
+  }
+</script>
+</body>
+</html>
