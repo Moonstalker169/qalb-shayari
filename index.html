@@ -491,12 +491,55 @@
     }
     footer p { font-size: .85rem; color: var(--ink-muted); line-height: 1.7; }
 
+    /* ─── BOTTOM NAV (mobile) ─── */
+    .bottom-nav {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(250,247,240,.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      z-index: 200;
+      padding: 6px 0 env(safe-area-inset-bottom, 8px);
+    }
+    .bottom-nav-inner {
+      display: flex; justify-content: space-around; align-items: center;
+    }
+    .bn-btn {
+      background: none; border: none; cursor: pointer;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 2px; padding: 6px 12px;
+      color: var(--ink-muted);
+      font-family: 'EB Garamond', serif;
+      font-size: .72rem; letter-spacing: .04em;
+      transition: var(--trans); border-radius: 12px;
+      min-width: 56px; min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .bn-icon { font-size: 1.25rem; line-height: 1.2; display: block; }
+    .bn-btn.active { color: var(--accent); }
+    .bn-btn.active .bn-icon { transform: scale(1.1); }
+
     /* ─── RESPONSIVE ─── */
     @media(max-width:600px) {
-      nav button { padding: 5px 10px; font-size: .9rem; }
+      nav { display: none; }
       .logo-divider, .logo-en { display: none; }
+      .bottom-nav { display: block; }
+      body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
       .shayari-grid { grid-template-columns: 1fr; }
-      .poet-grid { grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); }
+      .poet-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .hero { padding: 28px 16px 24px; }
+      .sotd-card { padding: 18px 16px; margin-top: 24px; }
+      .sher-card { padding: 20px 16px 14px; }
+      .sher-btn { padding: 7px 11px; font-size: .82rem; min-height: 36px; }
+      .theme-chip { padding: 14px 12px; }
+      .section-inner { padding: 0; }
+      section { padding: 24px 16px; }
+      .poet-detail-hero { padding: 24px 16px; }
+      .themes-hero { padding: 24px 16px; }
+      .search-hero-inner { padding: 0; }
+      .header-inner { height: 56px; }
+      footer { padding-bottom: 0; }
     }
 
     /* divider */
@@ -1233,9 +1276,12 @@ function toggleScript(btn, id) {
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   const navBtn = document.getElementById('nav-' + id);
   if (navBtn) navBtn.classList.add('active');
+  const bnBtn = document.getElementById('bn-' + id);
+  if (bnBtn) bnBtn.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1256,8 +1302,12 @@ function showPoetDetail(poetId) {
 
   // deactivate nav
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-poet-detail').classList.add('active');
+  // highlight Poets in bottom nav
+  const bnPoets = document.getElementById('bn-poets');
+  if (bnPoets) bnPoets.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1330,50 +1380,4 @@ function renderThemeGrid() {
     items.map(s => buildSherCard(s, false)).join('');
 }
 
-// ══════════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════════
-
-function initHome() {
-  // Sher of the day
-  const sotd = getSotd();
-  document.getElementById('sotd-text').innerHTML =
-    sotd.lines.map(l => `<span>${l}</span>`).join('<br/>');
-  const poet = getPoet(sotd.poet);
-  document.getElementById('sotd-avatar').textContent = poet.initials;
-  document.getElementById('sotd-poet').textContent = poet.en;
-  document.getElementById('sotd-poet-link').onclick = () => showPoetDetail(sotd.poet);
-
-  // Theme grid (home)
-  document.getElementById('home-theme-grid').innerHTML = THEMES.map(t =>
-    `<div class="theme-chip" data-theme="${t.id}" onclick="showPage('themes');selectTheme('${t.id}');renderThemePage()">
-      <span class="theme-chip-emoji">${t.emoji}</span>
-      <span class="theme-chip-en">${t.en} <small style="font-weight:400;font-size:.8em">· ${t.label}</small></span>
-      <span class="theme-chip-urdu">${t.urdu}</span>
-    </div>`
-  ).join('');
-
-  // Featured (random 6)
-  const featured = [...SHAYARI].sort(() => 0.5 - Math.random()).slice(0, 6);
-  document.getElementById('home-featured-grid').innerHTML =
-    featured.map(s => buildSherCard(s, false)).join('');
-
-  // Poets (home)
-  document.getElementById('home-poets-grid').innerHTML = POETS.map(p => `
-    <div class="poet-card" onclick="showPoetDetail('${p.id}')">
-      <div class="poet-avatar-lg">${p.initials}</div>
-      <div class="poet-name">${p.en}</div>
-      <div class="poet-name-urdu">${p.urdu}</div>
-      <div class="poet-years">${p.years}</div>
-      <span class="poet-count">${SHAYARI.filter(s=>s.poet===p.id).length} sher</span>
-    </div>`
-  ).join('');
-}
-
-function initPoets() {
-  document.getElementById('poets-main-grid').innerHTML = POETS.map(p => `
-    <div class="poet-card" onclick="showPoetDetail('${p.id}')">
-      <div class="poet-avatar-lg">${p.initials}</div>
-      <div class="poet-name">${p.en}</div>
-      <div class="poet-name-urdu">${p.urdu}</div>
-      <div class="poet-years">${p.years}</div>
+// ══════════════════════════════════════════════════�
