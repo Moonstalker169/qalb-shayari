@@ -305,6 +305,48 @@
     }
     .sher-btn:hover { border-color: var(--accent); color: var(--accent); }
     .sher-btn.copied { background: var(--accent2); border-color: var(--accent2); color: #fff; }
+    .sher-btn.playing { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ─── MEANING SECTION ─── */
+    .sher-meaning {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #faf7f0, #f5ede0);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+      animation: fadeIn .25s ease;
+    }
+    .sher-meaning.open { display: block; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+    .meaning-label {
+      font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .meaning-label::before { content:''; display:block; width:16px; height:1px; background:var(--gold); }
+    .meaning-en {
+      font-family: 'EB Garamond', serif; font-size: .95rem;
+      color: var(--ink-soft); line-height: 1.7; margin-bottom: 8px;
+    }
+    .meaning-hi {
+      font-family: 'EB Garamond', serif; font-size: .92rem;
+      color: var(--ink-muted); line-height: 1.7;
+      border-top: 1px solid var(--border); padding-top: 8px; margin-top: 6px;
+    }
+
+    /* loading state */
+    .loading-banner {
+      text-align: center; padding: 60px 20px;
+      font-family: 'EB Garamond', serif; font-size: 1.1rem;
+      color: var(--ink-muted);
+    }
+    .loading-banner .spinner {
+      display: inline-block; width: 28px; height: 28px;
+      border: 2px solid var(--border); border-top-color: var(--accent);
+      border-radius: 50%; animation: spin .8s linear infinite; margin-bottom: 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ─── POET CARDS ─── */
     .poet-grid {
@@ -751,7 +793,7 @@
 
 <script>
 // ══════════════════════════════════════════════════════
-//  DATA
+//  DATA — fetched from GitHub JSON (auto-updated)
 // ══════════════════════════════════════════════════════
 
 const THEMES = [
@@ -1208,6 +1250,50 @@ function shareNative(id) {
   }
 }
 
+function toggleMeaning(btn, id) {
+  const box = document.getElementById('meaning-' + id);
+  if (!box) return;
+  const open = box.classList.toggle('open');
+  btn.innerHTML = open ? '<span>💡</span> Hide' : '<span>💡</span> Meaning';
+  btn.style.borderColor = open ? 'var(--gold)' : '';
+  btn.style.color = open ? 'var(--gold)' : '';
+}
+
+let currentUtterance = null;
+function speakSher(btn, id) {
+  if (!window.speechSynthesis) { showToast('Audio not supported on this browser'); return; }
+  // Stop any currently playing
+  if (currentUtterance) {
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.sher-btn.playing').forEach(b => {
+      b.classList.remove('playing');
+      b.innerHTML = '<span>🔊</span> Listen';
+    });
+    if (btn.classList.contains('was-playing')) {
+      btn.classList.remove('was-playing');
+      currentUtterance = null;
+      return;
+    }
+  }
+  const s = SHAYARI.find(x => x.id === parseInt(id));
+  if (!s) return;
+  const text = s.lines.join(' ... ') + ' ... by ' + (getPoet(s.poet) ? getPoet(s.poet).en : '');
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = 0.85;
+  utterance.pitch = 1.05;
+  utterance.lang = 'en-IN';
+  utterance.onend = () => {
+    btn.classList.remove('playing');
+    btn.innerHTML = '<span>🔊</span> Listen';
+    currentUtterance = null;
+  };
+  currentUtterance = utterance;
+  btn.classList.add('playing', 'was-playing');
+  btn.innerHTML = '<span>⏹</span> Stop';
+  window.speechSynthesis.speak(utterance);
+  setTimeout(() => btn.classList.remove('was-playing'), 300);
+}
+
 function getSotd() {
   const today = new Date();
   const idx = (today.getDate() + today.getMonth() * 31) % SHAYARI.length;
@@ -1223,14 +1309,18 @@ function buildSherCard(s, showUrdu) {
   const theme = getTheme(s.theme);
   const lines = s.lines.map(l => `<span>${l}</span>`).join('<br/>');
   const initials = poet ? poet.initials : '?';
+  const hasMeaning = s.meaning_en || s.meaning_hi;
   return `
     <div class="sher-card">
       <div class="${showUrdu ? 'sher-urdu' : 'sher-text'}">
-        ${showUrdu
-          ? s.urdu.join('<br/>')
-          : lines
-        }
+        ${showUrdu ? s.urdu.join('<br/>') : lines}
       </div>
+      ${hasMeaning ? `
+      <div class="sher-meaning" id="meaning-${s.id}">
+        <div class="meaning-label">Meaning · معنی</div>
+        ${s.meaning_en ? `<div class="meaning-en">${s.meaning_en}</div>` : ''}
+        ${s.meaning_hi ? `<div class="meaning-hi">${s.meaning_hi}</div>` : ''}
+      </div>` : ''}
       <div class="sher-footer">
         <div class="sher-poet" onclick="showPoetDetail('${s.poet}')">
           <div class="sher-poet-avatar">${initials}</div>
@@ -1242,9 +1332,12 @@ function buildSherCard(s, showUrdu) {
         <button class="sher-btn" onclick="copySher(this)" data-id="${s.id}">
           <span>⧉</span> Copy
         </button>
-        <button class="sher-btn" onclick="shareNative(${s.id})">
-          <span>↗</span> Share
+        <button class="sher-btn" onclick="speakSher(this, ${s.id})">
+          <span>🔊</span> Listen
         </button>
+        ${hasMeaning ? `<button class="sher-btn" onclick="toggleMeaning(this, ${s.id})">
+          <span>💡</span> Meaning
+        </button>` : ''}
         <button class="sher-btn" onclick="toggleScript(this, ${s.id})">
           <span>اردو</span>
         </button>
@@ -1434,10 +1527,36 @@ document.getElementById('nav-themes').addEventListener('click', () => {
   renderThemePage();
 });
 
-initHome();
-initPoets();
-renderThemePage();
+// ── Load shayari from GitHub JSON, fallback to inline ──
+const GITHUB_JSON = 'https://raw.githubusercontent.com/Moonstalker169/qalb-shayari/main/shayari.json';
 
+function showLoadingState() {
+  ['home-featured-grid','home-poets-grid','themes-shayari-grid'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = '<div class="loading-banner"><div class="spinner"></div><br/>Loading shayari…</div>';
+  });
+}
+
+async function loadShayari() {
+  showLoadingState();
+  try {
+    const res = await fetch(GITHUB_JSON + '?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    if (data.shayari && data.shayari.length) {
+      SHAYARI.length = 0;
+      data.shayari.forEach(s => SHAYARI.push(s));
+      showToast('✨ ' + SHAYARI.length + ' shayari loaded');
+    }
+  } catch(e) {
+    console.log('Using built-in shayari data');
+  }
+  initHome();
+  initPoets();
+  renderThemePage();
+}
+
+loadShayari();
 document.getElementById('search-results-count').textContent = 'Type a poet name, theme, or any word…';
 </script>
 
