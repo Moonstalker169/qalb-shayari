@@ -1261,21 +1261,33 @@ function toggleMeaning(btn, id) {
 
 // ── Voice selection: prefer Urdu > Hindi > en-IN ──
 let _cachedVoice = undefined;
+// Male name fragments found in Indian/Urdu TTS voice names
+const MALE_NAME_HINTS = ['ravi','hemant','umang','kabir','raj','mohan','arjun','vijay','suresh','deepak','anil','sanjay','mangal','shankar','kiran'];
+function isMaleVoice(v) {
+  const n = (v.name || '').toLowerCase();
+  return MALE_NAME_HINTS.some(h => n.includes(h));
+}
 function getBestVoice() {
   if (_cachedVoice !== undefined) return _cachedVoice;
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return (_cachedVoice = null);
-  const prefs = [
+  // Prefer male Urdu > any Urdu > male Hindi > any Hindi > Indian English
+  const tiers = [
+    v => (v.lang === 'ur-PK' || v.lang === 'ur-IN') && isMaleVoice(v),
+    v => v.lang.startsWith('ur') && isMaleVoice(v),
     v => v.lang === 'ur-PK',
     v => v.lang === 'ur-IN',
     v => v.lang.startsWith('ur'),
+    v => v.lang === 'hi-IN' && isMaleVoice(v),
+    v => v.lang.startsWith('hi') && isMaleVoice(v),
     v => v.lang === 'hi-IN',
     v => v.lang.startsWith('hi'),
+    v => v.lang === 'en-IN' && isMaleVoice(v),
     v => v.lang === 'en-IN',
     v => v.lang.startsWith('en-IN'),
   ];
-  for (const p of prefs) {
-    const found = voices.find(p);
+  for (const t of tiers) {
+    const found = voices.find(t);
     if (found) return (_cachedVoice = found);
   }
   return (_cachedVoice = null);
@@ -1292,7 +1304,7 @@ function speakSher(btn, id) {
     window.speechSynthesis.cancel();
     document.querySelectorAll('.sher-btn.playing').forEach(b => {
       b.classList.remove('playing');
-      b.innerHTML = '<span>\U0001f50a</span> Listen';
+      b.innerHTML = '<span>🔊</span> Listen';
     });
     if (btn._wasPlaying) { btn._wasPlaying = false; currentUtterance = null; return; }
   }
@@ -1300,37 +1312,38 @@ function speakSher(btn, id) {
   if (!s) return;
 
   const voice = getBestVoice();
-  const lang = voice ? voice.lang : 'en-IN';
-  let text, rate;
+  const lang = voice ? voice.lang : 'hi-IN';
+  let text, rate, pitch;
 
   if (lang.startsWith('ur')) {
-    // Urdu voice — read Urdu script with pauses between lines
     text = s.urdu.join('  ');
-    rate = 0.72;
+    rate = 0.68;   // slow, deliberate — aged poet reciting
+    pitch = 0.75;  // deep, low — older Indian male timbre
   } else if (lang.startsWith('hi')) {
-    // Hindi voice — reads Roman Urdu with Indian accent
     text = s.lines.join('  ');
-    rate = 0.78;
+    rate = 0.72;
+    pitch = 0.72;  // noticeably deep — 50-year-old man quality
   } else {
-    // English fallback
     text = s.lines.join('  ');
-    rate = 0.82;
+    rate = 0.75;
+    pitch = 0.70;
   }
 
   const utterance = new SpeechSynthesisUtterance(text);
   if (voice) utterance.voice = voice;
   utterance.lang = lang;
   utterance.rate = rate;
-  utterance.pitch = 1.0;
+  utterance.pitch = pitch;
+  utterance.volume = 1.0;
   utterance.onend = () => {
     btn.classList.remove('playing');
-    btn.innerHTML = '<span>\U0001f50a</span> Listen';
+    btn.innerHTML = '<span>🔊</span> Listen';
     currentUtterance = null;
   };
   currentUtterance = utterance;
   btn._wasPlaying = true;
   btn.classList.add('playing');
-  btn.innerHTML = '<span>\u23f9</span> Stop';
+  btn.innerHTML = '<span>⏹</span> Stop';
   window.speechSynthesis.speak(utterance);
   setTimeout(() => { btn._wasPlaying = false; }, 400);
 }
