@@ -1259,39 +1259,80 @@ function toggleMeaning(btn, id) {
   btn.style.color = open ? 'var(--gold)' : '';
 }
 
+// ── Voice selection: prefer Urdu > Hindi > en-IN ──
+let _cachedVoice = undefined;
+function getBestVoice() {
+  if (_cachedVoice !== undefined) return _cachedVoice;
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return (_cachedVoice = null);
+  const prefs = [
+    v => v.lang === 'ur-PK',
+    v => v.lang === 'ur-IN',
+    v => v.lang.startsWith('ur'),
+    v => v.lang === 'hi-IN',
+    v => v.lang.startsWith('hi'),
+    v => v.lang === 'en-IN',
+    v => v.lang.startsWith('en-IN'),
+  ];
+  for (const p of prefs) {
+    const found = voices.find(p);
+    if (found) return (_cachedVoice = found);
+  }
+  return (_cachedVoice = null);
+}
+if (window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => { _cachedVoice = undefined; };
+  window.speechSynthesis.getVoices(); // trigger load
+}
+
 let currentUtterance = null;
 function speakSher(btn, id) {
   if (!window.speechSynthesis) { showToast('Audio not supported on this browser'); return; }
-  // Stop any currently playing
   if (currentUtterance) {
     window.speechSynthesis.cancel();
     document.querySelectorAll('.sher-btn.playing').forEach(b => {
       b.classList.remove('playing');
-      b.innerHTML = '<span>🔊</span> Listen';
+      b.innerHTML = '<span>\U0001f50a</span> Listen';
     });
-    if (btn.classList.contains('was-playing')) {
-      btn.classList.remove('was-playing');
-      currentUtterance = null;
-      return;
-    }
+    if (btn._wasPlaying) { btn._wasPlaying = false; currentUtterance = null; return; }
   }
   const s = SHAYARI.find(x => x.id === parseInt(id));
   if (!s) return;
-  const text = s.lines.join(' ... ') + ' ... by ' + (getPoet(s.poet) ? getPoet(s.poet).en : '');
+
+  const voice = getBestVoice();
+  const lang = voice ? voice.lang : 'en-IN';
+  let text, rate;
+
+  if (lang.startsWith('ur')) {
+    // Urdu voice — read Urdu script with pauses between lines
+    text = s.urdu.join('  ');
+    rate = 0.72;
+  } else if (lang.startsWith('hi')) {
+    // Hindi voice — reads Roman Urdu with Indian accent
+    text = s.lines.join('  ');
+    rate = 0.78;
+  } else {
+    // English fallback
+    text = s.lines.join('  ');
+    rate = 0.82;
+  }
+
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.85;
-  utterance.pitch = 1.05;
-  utterance.lang = 'en-IN';
+  if (voice) utterance.voice = voice;
+  utterance.lang = lang;
+  utterance.rate = rate;
+  utterance.pitch = 1.0;
   utterance.onend = () => {
     btn.classList.remove('playing');
-    btn.innerHTML = '<span>🔊</span> Listen';
+    btn.innerHTML = '<span>\U0001f50a</span> Listen';
     currentUtterance = null;
   };
   currentUtterance = utterance;
-  btn.classList.add('playing', 'was-playing');
-  btn.innerHTML = '<span>⏹</span> Stop';
+  btn._wasPlaying = true;
+  btn.classList.add('playing');
+  btn.innerHTML = '<span>\u23f9</span> Stop';
   window.speechSynthesis.speak(utterance);
-  setTimeout(() => btn.classList.remove('was-playing'), 300);
+  setTimeout(() => { btn._wasPlaying = false; }, 400);
 }
 
 function getSotd() {
