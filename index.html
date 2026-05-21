@@ -600,6 +600,7 @@
     .theme-chip[data-theme="khwab"]:hover { background: #3a5a6a; border-color: #3a5a6a; }
     .theme-chip[data-theme="khud"]:hover  { background: #6a3a5a; border-color: #6a3a5a; }
   </style>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=FREE"></script>
 </head>
 <body>
 
@@ -1256,61 +1257,17 @@ function toggleMeaning(btn, id) {
   const open = box.classList.toggle('open');
   btn.innerHTML = open ? '<span>💡</span> Hide' : '<span>💡</span> Meaning';
   btn.style.borderColor = open ? 'var(--gold)' : '';
-  btn.style.color = open ? 'var(--gold)' : '';
-}
+  btn.style.color =function speakSher(btn, id) {
+  const wasPlaying = btn.classList.contains('playing');
 
-// ── Voice selection: prefer Urdu > Hindi > en-IN ──
-let currentAudio = null;
-let currentUtterance = null;
+  // Stop any current ResponsiveVoice playback
+  try { if (typeof responsiveVoice !== 'undefined') responsiveVoice.cancel(); } catch(e) {}
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
 
-function _stopAll() {
-  if (currentAudio) {
-    currentAudio.pause();
-    currentAudio.src = '';
-    currentAudio = null;
-  }
-  if (currentUtterance) {
-    try { window.speechSynthesis && window.speechSynthesis.cancel(); } catch(e) {}
-    currentUtterance = null;
-  }
   document.querySelectorAll('.sher-btn.playing').forEach(b => {
     b.classList.remove('playing');
-    b.innerHTML = '<span>\U0001f50a</span> Listen';
+    b.innerHTML = '<span>🔊</span> Listen';
   });
-}
-
-function _speakDone(btn) {
-  btn.classList.remove('playing');
-  btn.innerHTML = '<span>\U0001f50a</span> Listen';
-  currentAudio = null;
-  currentUtterance = null;
-}
-
-function _fallbackSpeech(btn, s) {
-  // Web Speech API fallback — deepest possible pitch for any available voice
-  if (!window.speechSynthesis) return;
-  const voices = window.speechSynthesis.getVoices();
-  // Try to find any Indian voice
-  const v = voices.find(x => x.lang === 'hi-IN') ||
-            voices.find(x => x.lang.startsWith('hi')) ||
-            voices.find(x => x.lang === 'en-IN') ||
-            voices.find(x => x.lang === 'ur-PK') ||
-            null;
-  const text = s.lines.join('. ');
-  const u = new SpeechSynthesisUtterance(text);
-  if (v) u.voice = v;
-  u.lang = v ? v.lang : 'hi-IN';
-  u.pitch = 0;      // absolute minimum — as deep as the engine can go
-  u.rate = 0.70;
-  u.volume = 1.0;
-  u.onend = () => _speakDone(btn);
-  currentUtterance = u;
-  window.speechSynthesis.speak(u);
-}
-
-function speakSher(btn, id) {
-  const wasPlaying = btn.classList.contains('playing');
-  _stopAll();
   if (wasPlaying) return; // toggle off
 
   const s = SHAYARI.find(x => x.id === parseInt(id));
@@ -1319,27 +1276,39 @@ function speakSher(btn, id) {
   btn.classList.add('playing');
   btn.innerHTML = '<span>&#9209;</span> Stop';
 
-  // Use lines joined for TTS; prefer Hindi script feel
-  const text = s.lines.join('. ');
+  const text = s.lines.join(' ... ');
 
-  // Google Translate TTS — natural Indian male voice, no API key needed
-  // ttsspeed 0.75 = slightly slower, more dignified delivery
-  const ttsUrl = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=hi&client=tw-ob&ttsspeed=0.75&q=' +
-                 encodeURIComponent(text.slice(0, 200)); // keep URL reasonable
-
-  const audio = new Audio(ttsUrl);
-  currentAudio = audio;
-
-  audio.onended = () => _speakDone(btn);
-  audio.onerror = () => {
-    // Google TTS failed (network / CORS) — fall back to Web Speech API
-    currentAudio = null;
-    _fallbackSpeech(btn, s);
+  const done = () => {
+    btn.classList.remove('playing');
+    btn.innerHTML = '<span>🔊</span> Listen';
   };
 
-  const playPromise = audio.play();
-  if (playPromise && typeof playPromise.then === 'function') {
-    playPromise.catch(() => {
+  if (typeof responsiveVoice !== 'undefined' && responsiveVoice.voiceSupport()) {
+    // "Hindi Male" = ResponsiveVoice voiceID 394 — real male Indian voice
+    responsiveVoice.speak(text, 'Hindi Male', {
+      rate: 0.78,
+      pitch: 0.85,
+      volume: 1,
+      onend: done,
+      onerror: done
+    });
+  } else {
+    // Fallback: Web Speech API, deepest pitch possible
+    if (!window.speechSynthesis) { done(); return; }
+    const voices = window.speechSynthesis.getVoices();
+    const v = voices.find(x => x.lang === 'hi-IN') ||
+              voices.find(x => x.lang === 'en-IN') ||
+              voices.find(x => x.lang.startsWith('hi')) || null;
+    const u = new SpeechSynthesisUtterance(text);
+    if (v) u.voice = v;
+    u.lang   = v ? v.lang : 'hi-IN';
+    u.pitch  = 0.1;
+    u.rate   = 0.72;
+    u.volume = 1.0;
+    u.onend  = done;
+    window.speechSynthesis.speak(u);
+  }
+}catch(() => {
       currentAudio = null;
       _fallbackSpeech(btn, s);
     });
