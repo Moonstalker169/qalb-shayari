@@ -1260,92 +1260,90 @@ function toggleMeaning(btn, id) {
 }
 
 // ── Voice selection: prefer Urdu > Hindi > en-IN ──
-let _cachedVoice = undefined;
-// Male name fragments found in Indian/Urdu TTS voice names
-const MALE_NAME_HINTS = ['ravi','hemant','umang','kabir','raj','mohan','arjun','vijay','suresh','deepak','anil','sanjay','mangal','shankar','kiran'];
-function isMaleVoice(v) {
-  const n = (v.name || '').toLowerCase();
-  return MALE_NAME_HINTS.some(h => n.includes(h));
-}
-function getBestVoice() {
-  if (_cachedVoice !== undefined) return _cachedVoice;
-  const voices = window.speechSynthesis.getVoices();
-  if (!voices.length) return (_cachedVoice = null);
-  // Prefer male Urdu > any Urdu > male Hindi > any Hindi > Indian English
-  const tiers = [
-    v => (v.lang === 'ur-PK' || v.lang === 'ur-IN') && isMaleVoice(v),
-    v => v.lang.startsWith('ur') && isMaleVoice(v),
-    v => v.lang === 'ur-PK',
-    v => v.lang === 'ur-IN',
-    v => v.lang.startsWith('ur'),
-    v => v.lang === 'hi-IN' && isMaleVoice(v),
-    v => v.lang.startsWith('hi') && isMaleVoice(v),
-    v => v.lang === 'hi-IN',
-    v => v.lang.startsWith('hi'),
-    v => v.lang === 'en-IN' && isMaleVoice(v),
-    v => v.lang === 'en-IN',
-    v => v.lang.startsWith('en-IN'),
-  ];
-  for (const t of tiers) {
-    const found = voices.find(t);
-    if (found) return (_cachedVoice = found);
+let currentAudio = null;
+let currentUtterance = null;
+
+function _stopAll() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.src = '';
+    currentAudio = null;
   }
-  return (_cachedVoice = null);
-}
-if (window.speechSynthesis) {
-  window.speechSynthesis.onvoiceschanged = () => { _cachedVoice = undefined; };
-  window.speechSynthesis.getVoices(); // trigger load
+  if (currentUtterance) {
+    try { window.speechSynthesis && window.speechSynthesis.cancel(); } catch(e) {}
+    currentUtterance = null;
+  }
+  document.querySelectorAll('.sher-btn.playing').forEach(b => {
+    b.classList.remove('playing');
+    b.innerHTML = '<span>\U0001f50a</span> Listen';
+  });
 }
 
-let currentUtterance = null;
+function _speakDone(btn) {
+  btn.classList.remove('playing');
+  btn.innerHTML = '<span>\U0001f50a</span> Listen';
+  currentAudio = null;
+  currentUtterance = null;
+}
+
+function _fallbackSpeech(btn, s) {
+  // Web Speech API fallback — deepest possible pitch for any available voice
+  if (!window.speechSynthesis) return;
+  const voices = window.speechSynthesis.getVoices();
+  // Try to find any Indian voice
+  const v = voices.find(x => x.lang === 'hi-IN') ||
+            voices.find(x => x.lang.startsWith('hi')) ||
+            voices.find(x => x.lang === 'en-IN') ||
+            voices.find(x => x.lang === 'ur-PK') ||
+            null;
+  const text = s.lines.join('. ');
+  const u = new SpeechSynthesisUtterance(text);
+  if (v) u.voice = v;
+  u.lang = v ? v.lang : 'hi-IN';
+  u.pitch = 0;      // absolute minimum — as deep as the engine can go
+  u.rate = 0.70;
+  u.volume = 1.0;
+  u.onend = () => _speakDone(btn);
+  currentUtterance = u;
+  window.speechSynthesis.speak(u);
+}
+
 function speakSher(btn, id) {
-  if (!window.speechSynthesis) { showToast('Audio not supported on this browser'); return; }
-  if (currentUtterance) {
-    window.speechSynthesis.cancel();
-    document.querySelectorAll('.sher-btn.playing').forEach(b => {
-      b.classList.remove('playing');
-      b.innerHTML = '<span>🔊</span> Listen';
-    });
-    if (btn._wasPlaying) { btn._wasPlaying = false; currentUtterance = null; return; }
-  }
+  const wasPlaying = btn.classList.contains('playing');
+  _stopAll();
+  if (wasPlaying) return; // toggle off
+
   const s = SHAYARI.find(x => x.id === parseInt(id));
   if (!s) return;
 
-  const voice = getBestVoice();
-  const lang = voice ? voice.lang : 'hi-IN';
-  let text, rate, pitch;
-
-  if (lang.startsWith('ur')) {
-    text = s.urdu.join('  ');
-    rate = 0.68;   // slow, deliberate — aged poet reciting
-    pitch = 0.75;  // deep, low — older Indian male timbre
-  } else if (lang.startsWith('hi')) {
-    text = s.lines.join('  ');
-    rate = 0.72;
-    pitch = 0.72;  // noticeably deep — 50-year-old man quality
-  } else {
-    text = s.lines.join('  ');
-    rate = 0.75;
-    pitch = 0.70;
-  }
-
-  const utterance = new SpeechSynthesisUtterance(text);
-  if (voice) utterance.voice = voice;
-  utterance.lang = lang;
-  utterance.rate = rate;
-  utterance.pitch = pitch;
-  utterance.volume = 1.0;
-  utterance.onend = () => {
-    btn.classList.remove('playing');
-    btn.innerHTML = '<span>🔊</span> Listen';
-    currentUtterance = null;
-  };
-  currentUtterance = utterance;
-  btn._wasPlaying = true;
   btn.classList.add('playing');
-  btn.innerHTML = '<span>⏹</span> Stop';
-  window.speechSynthesis.speak(utterance);
-  setTimeout(() => { btn._wasPlaying = false; }, 400);
+  btn.innerHTML = '<span>&#9209;</span> Stop';
+
+  // Use lines joined for TTS; prefer Hindi script feel
+  const text = s.lines.join('. ');
+
+  // Google Translate TTS — natural Indian male voice, no API key needed
+  // ttsspeed 0.75 = slightly slower, more dignified delivery
+  const ttsUrl = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=hi&client=tw-ob&ttsspeed=0.75&q=' +
+                 encodeURIComponent(text.slice(0, 200)); // keep URL reasonable
+
+  const audio = new Audio(ttsUrl);
+  currentAudio = audio;
+
+  audio.onended = () => _speakDone(btn);
+  audio.onerror = () => {
+    // Google TTS failed (network / CORS) — fall back to Web Speech API
+    currentAudio = null;
+    _fallbackSpeech(btn, s);
+  };
+
+  const playPromise = audio.play();
+  if (playPromise && typeof playPromise.then === 'function') {
+    playPromise.catch(() => {
+      currentAudio = null;
+      _fallbackSpeech(btn, s);
+    });
+  }
 }
 
 function getSotd() {
