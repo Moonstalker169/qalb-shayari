@@ -1,0 +1,566 @@
+{
+  "version": 2,
+  "updated": "2026-05-20",
+  "shayari": [
+    {
+      "id":1,"poet":"ghalib","theme":"ishq",
+      "lines":["Hazaron khwahishen aisi ke har khwahish pe dam nikle","Bahut nikle mere armaan lekin phir bhi kam nikle"],
+      "urdu":["ہزاروں خواہشیں ایسی کہ ہر خواہش پہ دم نکلے","بہت نکلے میرے ارمان لیکن پھر بھی کم نکلے"],
+      "meaning_en":"I have thousands of desires, each so intense I could die for them. Even after many were fulfilled, they still felt too few — the heart's longing is truly endless.",
+      "meaning_hi":"मेरी हज़ारों ख्वाहिशें हैं, हर एक पर जान दे दूं। बहुत पूरी हुईं लेकिन फिर भी कम लगीं — दिल की तड़प का कोई अंत नहीं।"
+    },
+    {
+      "id":2,"poet":"ghalib","theme":"gham",
+      "lines":["Dil-e-naadan tujhe hua kya hai","Aakhir is dard ki dawa kya hai"],
+      "urdu":["دلِ نادان تجھے ہوا کیا ہے","آخر اس درد کی دوا کیا ہے"],
+      "meaning_en":"O innocent heart, what has come over you? What, in the end, is the cure for this pain you carry? Ghalib addresses his own restless heart with tender irony.",
+      "meaning_hi":"हे नादान दिल, तुझे क्या हो गया? आख़िर इस दर्द की दवा क्या है? ग़ालिब अपने बेचैन दिल से कोमल व्यंग्य से पूछते हैं।"
+    },
+    {
+      "id":3,"poet":"ghalib","theme":"zindagi",
+      "lines":["Ishq ne Ghalib nikamma kar diya","Warna hum bhi aadmi the kaam ke"],
+      "urdu":["عشق نے غالب نکمّا کر دیا","ورنہ ہم بھی آدمی تھے کام کے"],
+      "meaning_en":"Love has made Ghalib utterly useless. Otherwise, I too was a productive, capable man. A wry confession that love consumed all his ambition and left only longing.",
+      "meaning_hi":"इश्क ने ग़ालिब को बिल्कुल निकम्मा बना दिया — वरना हम भी काम के आदमी थे। इश्क ने सारी ऊर्जा और उद्देश्य को निगल लिया।"
+    },
+    {
+      "id":4,"poet":"ghalib","theme":"khud",
+      "lines":["Rekhte ke tum hi ustaad nahi ho Ghalib","Kehte hain agle zamane mein koi Mir bhi tha"],
+      "urdu":["ریختے کے تم ہی استاد نہیں ہو غالب","کہتے ہیں اگلے زمانے میں کوئی میر بھی تھا"],
+      "meaning_en":"Ghalib, you are not the sole master of Urdu poetry. They say in an earlier age there was also someone called Mir. A humble and graceful tribute to Mir Taqi Mir.",
+      "meaning_hi":"ग़ालिब, उर्दू शायरी के एकमात्र उस्ताद तुम नहीं — कहते हैं पहले ज़माने में कोई मीर भी था। एक विनम्र श्रद्धांजलि।"
+    },
+    {
+      "id":5,"poet":"ghalib","theme":"khwab",
+      "lines":["Baazicha-e-atfaal hai duniya mere aage","Hota hai shab-o-roz tamasha mere aage"],
+      "urdu":["بازیچۂ اطفال ہے دنیا مرے آگے","ہوتا ہے شب و روز تماشا مرے آگے"],
+      "meaning_en":"The world before me is merely a children's playground. Day and night a spectacle unfolds before me. Life is a drama, and Ghalib watches it all with detached wonder.",
+      "meaning_hi":"दुनिया मेरे लिए बच्चों के खेल की तरह है। रात और दिन मेरे सामने एक तमाशा होता रहता है। जीवन एक नाटक है।"
+    },
+    {
+      "id":6,"poet":"ghalib","theme":"ishq",
+      "lines":["Mohabbat mein nahi hai farq jeene aur marne ka","Usi ko dekh kar jeete hain jis kafir pe dam nikle"],
+      "urdu":["محبت میں نہیں ہے فرق جینے اور مرنے کا","اسی کو دیکھ کر جیتے ہیں جس کافر پہ دم نکلے"],
+      "meaning_en":"In love, there is no difference between living and dying. We live only by beholding the one for whom we could willingly die. Love makes life and death indistinguishable.",
+      "meaning_hi":"मोहब्बत में जीने और मरने में कोई फ़र्क नहीं। उसी को देखकर जीते हैं जिस पर जान फ़िदा है। इश्क में जीवन और मृत्यु एक हो जाते हैं।"
+    },
+    {
+      "id":7,"poet":"ghalib","theme":"gham",
+      "lines":["Qaid-e-hayaat o band-e-gham, asl mein dono ek hain","Maut se pehle aadmi gham se nijaat paye kyun"],
+      "urdu":["قید حیات و بند غم اصل میں دونوں ایک ہیں","موت سے پہلے آدمی غم سے نجات پائے کیوں"],
+      "meaning_en":"The prison of life and the shackles of sorrow are essentially the same thing. Why should a man be freed from sorrow before death itself? Sorrow is the very nature of existence.",
+      "meaning_hi":"जीवन की क़ैद और ग़म की बेड़ियाँ — दोनों असल में एक ही हैं। मृत्यु से पहले इंसान ग़म से मुक्त क्यों हो? ग़म ही अस्तित्व की प्रकृति है।"
+    },
+    {
+      "id":8,"poet":"ghalib","theme":"waqt",
+      "lines":["Umr bhar hum yahi bhool karte rahe","Dhool chehre pe thi aur aaina saaf karte rahe"],
+      "urdu":["عمر بھر ہم یہی بھول کرتے رہے","دھول چہرے پہ تھی اور آئینہ صاف کرتے رہے"],
+      "meaning_en":"All my life I kept making this same mistake — the dust was on my face, but I kept cleaning the mirror. A powerful metaphor for blaming others for one's own flaws.",
+      "meaning_hi":"उम्र भर हम यही गलती करते रहे — धूल चेहरे पर थी और आईना साफ़ करते रहे। अपनी गलती को दूसरों में ढूंढने की आदत का सुंदर रूपक।"
+    },
+    {
+      "id":9,"poet":"faiz","theme":"ishq",
+      "lines":["Mujhse pehli si mohabbat meri mehboob na maang","Main ne samjha tha ke tu hai toh darakhshaan hai hayaat"],
+      "urdu":["مجھ سے پہلی سی محبت مری محبوب نہ مانگ","میں نے سمجھا تھا کہ تو ہے تو درخشاں ہے حیات"],
+      "meaning_en":"Do not ask me for the same love I once gave, my beloved. I once believed that if I had you, life would be radiant. But now I know the world holds other sorrows too.",
+      "meaning_hi":"मुझसे पहले जैसी मोहब्बत मत माँग मेरी महबूब। मैंने सोचा था कि तू है तो ज़िंदगी रोशन है — पर अब जाना कि दुनिया में और भी ग़म हैं।"
+    },
+    {
+      "id":10,"poet":"faiz","theme":"zindagi",
+      "lines":["Bol ke lab azaad hain tere","Bol ke zubaan abhi teri hai"],
+      "urdu":["بول کہ لب آزاد ہیں تیرے","بول کہ زباں ابھی تیری ہے"],
+      "meaning_en":"Speak! Your lips are still free. Speak! Your tongue is still yours. Faiz urges resistance — speak your truth now, before freedom itself is taken away.",
+      "meaning_hi":"बोल — तेरे होंठ आज़ाद हैं। बोल — ज़बान अभी तेरी है। फ़ैज़ विरोध का आह्वान करते हैं — अभी बोलो, इससे पहले कि आज़ादी छिन जाए।"
+    },
+    {
+      "id":11,"poet":"faiz","theme":"intezaar",
+      "lines":["Kab yaad mein tera saath nahi, kab haath mein tera haath nahi","Sadvaan ki manzil door sahi, manzil bhi koi baat nahi"],
+      "urdu":["کب یاد میں تیرا ساتھ نہیں، کب ہاتھ میں تیرا ہاتھ نہیں","صدوں کی منزل دور سہی، منزل بھی کوئی بات نہیں"],
+      "meaning_en":"When is it that your memory does not accompany me? When is it that your hand is not in mine? Even if the destination is centuries away, the destination itself is not what matters.",
+      "meaning_hi":"कब तेरी याद मेरे साथ नहीं, कब तेरा हाथ मेरे हाथ में नहीं? सदियों की मंज़िल दूर सही — मंज़िल भी कोई बात नहीं।"
+    },
+    {
+      "id":12,"poet":"faiz","theme":"gham",
+      "lines":["Aaj bazaar mein pa-ba-jolan chalo","Dast-afshan chalo, mast-o-raqsan chalo"],
+      "urdu":["آج بازار میں پابجولاں چلو","دست افشاں چلو، مست و رقساں چلو"],
+      "meaning_en":"Today walk into the marketplace in chains. Walk with hands waving, walk intoxicated and dancing. A revolutionary call to face oppression with dignity and defiance.",
+      "meaning_hi":"आज बाज़ार में ज़ंजीरों में चलो — हाथ लहराते हुए, नशे में, नाचते हुए चलो। दमन का सामना शान और विद्रोह से करो।"
+    },
+    {
+      "id":13,"poet":"mir","theme":"gham",
+      "lines":["Patta patta boota boota haal hamara jaane hai","Jaane na jaane gul hi na jaane, baagh toh sara jaane hai"],
+      "urdu":["پتّہ پتّہ بوٹا بوٹا حال ہمارا جانے ہے","جانے نہ جانے گل ہی نہ جانے، باغ تو سارا جانے ہے"],
+      "meaning_en":"Every leaf, every plant knows the state of my heart. The rose may or may not know, but the entire garden is aware of my suffering. Even nature witnesses my pain.",
+      "meaning_hi":"हर पत्ता, हर पौधा मेरा हाल जानता है। गुल जाने या न जाने — पूरा बाग़ तो मेरा दर्द जानता है। प्रकृति भी मेरे दर्द की गवाह है।"
+    },
+    {
+      "id":14,"poet":"mir","theme":"ishq",
+      "lines":["Ibtida-e-ishq hai, rota hai kya","Aage aage dekhiye, hota hai kya"],
+      "urdu":["ابتدائے عشق ہے روتا ہے کیا","آگے آگے دیکھیے ہوتا ہے کیا"],
+      "meaning_en":"This is only the beginning of love — why weep now? Wait and watch what lies ahead. A warning: the real pain of love has not even begun yet.",
+      "meaning_hi":"यह तो इश्क की शुरुआत है — अभी से क्यों रो रहे हो? आगे देखो क्या होता है। असली दर्द तो अभी आना बाकी है।"
+    },
+    {
+      "id":15,"poet":"mir","theme":"zindagi",
+      "lines":["Dil ke aaine mein hai tasveer yaar","Jab zara gardaan jhukai dekh li"],
+      "urdu":["دل کے آئینے میں ہے تصویر یار","جب ذرا گردن جھکائی دیکھ لی"],
+      "meaning_en":"The image of my beloved lives in the mirror of my heart. Whenever I bowed my head even slightly, I saw their face. Love is so deep it lives within the self.",
+      "meaning_hi":"दिल के आईने में महबूब की तस्वीर है — जब भी थोड़ा सिर झुकाया, उसे देख लिया। इश्क इतना गहरा है कि वो खुद के अंदर बसता है।"
+    },
+    {
+      "id":16,"poet":"iqbal","theme":"khud",
+      "lines":["Khudi ko kar buland itna ke har taqder se pehle","Khuda bande se khud pooche: bata, teri raza kya hai"],
+      "urdu":["خودی کو کر بلند اتنا کہ ہر تقدیر سے پہلے","خدا بندے سے خود پوچھے بتا تیری رضا کیا ہے"],
+      "meaning_en":"Elevate your inner self (Khudi) so high that before every decree of fate, God himself asks you: 'Tell me, what is your will?' True selfhood commands even destiny.",
+      "meaning_hi":"अपनी खुदी को इतना ऊँचा उठाओ कि हर तक़दीर से पहले ख़ुद खुदा पूछे — बताओ, तुम्हारी मर्ज़ी क्या है? सच्ची आत्मशक्ति तक़दीर को भी आदेश देती है।"
+    },
+    {
+      "id":17,"poet":"iqbal","theme":"khud",
+      "lines":["Tu shaheen hai, parwaz hai kaam tera","Tere saamne aasmaan aur bhi hain"],
+      "urdu":["تو شاہیں ہے، پرواز ہے کام تیرا","تیرے سامنے آسمان اور بھی ہیں"],
+      "meaning_en":"You are an eagle — flight is your very purpose. Before you lie more skies than you can imagine. Do not confine yourself; your potential is limitless.",
+      "meaning_hi":"तू शाहीन (बाज़) है — उड़ना तेरा काम है। तेरे सामने अभी और भी आसमान हैं। खुद को सीमित मत करो, तुम्हारी क्षमता असीमित है।"
+    },
+    {
+      "id":18,"poet":"iqbal","theme":"zindagi",
+      "lines":["Sitaaron se aage jahaan aur bhi hain","Abhi ishq ke imtehaan aur bhi hain"],
+      "urdu":["ستاروں سے آگے جہاں اور بھی ہیں","ابھی عشق کے امتحان اور بھی ہیں"],
+      "meaning_en":"Beyond the stars, there are more worlds yet. There are still more tests of love to come. Iqbal urges the soul to keep striving — the journey never ends.",
+      "meaning_hi":"तारों से भी आगे और दुनियाएँ हैं। अभी इश्क के और भी इम्तिहान बाकी हैं। रूह को आगे बढ़ते रहना चाहिए — सफ़र कभी खत्म नहीं होता।"
+    },
+    {
+      "id":19,"poet":"iqbal","theme":"waqt",
+      "lines":["Waqt-e-furshat hai kahaan, kaam abhi baaki hai","Noor-e-tauheed ka etmlaam abhi baaki hai"],
+      "urdu":["وقت فرصت ہے کہاں، کام ابھی باقی ہے","نور توحید کا اتمام ابھی باقی ہے"],
+      "meaning_en":"Where is the time to rest? There is still work to be done. The completion of the light of faith is still pending. A call to action and spiritual responsibility.",
+      "meaning_hi":"आराम का वक्त कहाँ — काम अभी बाकी है। तौहीद की रोशनी का पूरा होना अभी बाकी है। यह एक कर्म और ज़िम्मेदारी का आह्वान है।"
+    },
+    {
+      "id":20,"poet":"faraz","theme":"ishq",
+      "lines":["Ranjish hi sahi, dil hi dukhane ke liye aa","Aa phir se mujhe chhod ke jaane ke liye aa"],
+      "urdu":["رنجش ہی سہی، دل ہی دکھانے کے لیے آ","آ پھر سے مجھے چھوڑ کے جانے کے لیے آ"],
+      "meaning_en":"Even if it is only to hurt me, come. Come back just to leave me again. A raw, desperate longing — even pain from the beloved is better than their absence.",
+      "meaning_hi":"रंजिश ही सही, दिल दुखाने के लिए आ। आ, फिर से मुझे छोड़ कर जाने के लिए आ। महबूब का दर्द भी उसकी गैरहाज़िरी से बेहतर है।"
+    },
+    {
+      "id":21,"poet":"faraz","theme":"intezaar",
+      "lines":["Ab ke hum bichhde toh shayad kabhi khwabon mein milein","Jis tarah sukhe hue phool kitabon mein milein"],
+      "urdu":["اب کے ہم بچھڑے تو شاید کبھی خوابوں میں ملیں","جس طرح سوکھے ہوئے پھول کتابوں میں ملیں"],
+      "meaning_en":"If we part this time, we may only meet again in dreams — the way dried flowers are found pressed between the pages of old books. A heartbreaking image of faded love.",
+      "meaning_hi":"इस बार बिछड़े तो शायद खोई हुई याद बनकर खोابों में मिलें — जैसे पुरानी किताबों में सूखे फूल मिलते हैं। बिछड़े प्यार की बेहद दर्दनाक तस्वीर।"
+    },
+    {
+      "id":22,"poet":"faraz","theme":"gham",
+      "lines":["Tujhe bhoolne ki koshish mein bhool jaata hoon","Bahut zyada yaad aata hai jab bhool jaata hoon"],
+      "urdu":["تجھے بھولنے کی کوشش میں بھول جاتا ہوں","بہت زیادہ یاد آتا ہے جب بھول جاتا ہوں"],
+      "meaning_en":"In trying to forget you, I forget everything else. And the moment I forget, you come rushing back even more intensely. The paradox of trying to forget someone you love.",
+      "meaning_hi":"तुझे भूलने की कोशिश में सब भूल जाता हूँ। और जब भूल जाता हूँ तब तू और ज़्यादा याद आता है। किसी को भूलने की कोशिश का विरोधाभास।"
+    },
+    {
+      "id":23,"poet":"faraz","theme":"khwab",
+      "lines":["Guzar gaye woh din jo tere saath the Faraz","Ab teri yaad mein din raat guzarate hain"],
+      "urdu":["گزر گئے وہ دن جو تیرے ساتھ تھے فراز","اب تیری یاد میں دن رات گزارتے ہیں"],
+      "meaning_en":"Those days I spent with you are now gone, Faraz. Now the days and nights pass only in your memory. Time moves, but memories are frozen in longing.",
+      "meaning_hi":"फ़राज़, वो दिन गुज़र गए जो तेरे साथ थे। अब तेरी याद में दिन-रात गुज़रते हैं। वक्त बीतता है पर यादें तड़प में जमी रहती हैं।"
+    },
+    {
+      "id":24,"poet":"jaun","theme":"khud",
+      "lines":["Main bhi bahut ajeeb hoon, kitna ajeeb hoon main","Jo tujhse door bhi hoon, tere qareeb bhi hoon"],
+      "urdu":["میں بھی بہت عجیب ہوں، کتنا عجیب ہوں میں","جو تجھ سے دور بھی ہوں تیرے قریب بھی ہوں"],
+      "meaning_en":"How strange I am — I am both far from you and near you at the same time. Jaun captures the contradictory nature of love and longing in a single breath.",
+      "meaning_hi":"मैं भी बहुत अजीब हूँ — तुझसे दूर भी हूँ और क़रीब भी। जौन एक ही साँस में प्रेम और तड़प के विरोधाभास को क़ैद करते हैं।"
+    },
+    {
+      "id":25,"poet":"jaun","theme":"intezaar",
+      "lines":["Yeh soch kar ke woh aayenge aur jaayenge","Yeh umr beet gayi intezaar karte karte"],
+      "urdu":["یہ سوچ کر کہ وہ آئیں گے اور جائیں گے","یہ عمر بیت گئی انتظار کرتے کرتے"],
+      "meaning_en":"Thinking that they will come, and then they will go — my entire life passed away in waiting. A devastating portrait of a life consumed by hope and anticipation.",
+      "meaning_hi":"यह सोचकर कि वो आएँगे और चले जाएँगे — यह पूरी उम्र इंतज़ार करते-करते बीत गई। एक ज़िंदगी जो उम्मीद और इंतज़ार में डूब गई।"
+    },
+    {
+      "id":26,"poet":"jaun","theme":"gham",
+      "lines":["Shayad ke apni rooh ki duniya mein ghum hoon main","Main hoon toh sahi, lekin kahaan hoon main"],
+      "urdu":["شاید کہ اپنی روح کی دنیا میں گم ہوں میں","میں ہوں تو سہی، لیکن کہاں ہوں میں"],
+      "meaning_en":"Perhaps I am lost within the world of my own soul. I exist, yes — but where do I truly exist? A profound meditation on existential emptiness and self-loss.",
+      "meaning_hi":"शायद मैं अपनी रूह की दुनिया में खो गया हूँ। मैं हूँ तो सही — लेकिन कहाँ हूँ मैं? अस्तित्व की खालीपन पर एक गहरा चिंतन।"
+    },
+    {
+      "id":27,"poet":"jaun","theme":"zindagi",
+      "lines":["Bewajah jeene ka yeh silsila tha","Mujhe khud se bhi mila tha, khud se bhi gila tha"],
+      "urdu":["بے وجہ جینے کا یہ سلسلہ تھا","مجھے خود سے بھی ملا تھا، خود سے بھی گلہ تھا"],
+      "meaning_en":"This was the chain of living without reason. I had found myself, and yet I had complaints even against myself. Life as an absurd continuity, full of inner contradictions.",
+      "meaning_hi":"बे-वजह जीने का यह सिलसिला था। खुद से मिला भी था, और खुद से शिकायत भी थी। ज़िंदगी — एक बेमतलब सिलसिला जो भीतरी विरोधाभासों से भरा है।"
+    },
+    {
+      "id":28,"poet":"bashir","theme":"dost",
+      "lines":["Koi haath bhi na milaayega jo gale miloge tum aakar","Tumko kasam hai apni, mujhse milne ki aadat chhodna mat"],
+      "urdu":["کوئی ہاتھ بھی نہ ملائے گا جو گلے ملو گے تم آ کر","تمہیں قسم ہے اپنی مجھ سے ملنے کی عادت چھوڑنا مت"],
+      "meaning_en":"No one may shake your hand when you come to embrace me. I swear by you — do not give up the habit of meeting me. A tender appeal to a dear friend not to abandon the bond.",
+      "meaning_hi":"जब तुम गले मिलने आओगे तो कोई हाथ भी नहीं मिलाएगा। तुम्हें अपनी क़सम — मुझसे मिलने की आदत मत छोड़ना। एक प्रिय मित्र से मिलते रहने की कोमल गुज़ारिश।"
+    },
+    {
+      "id":29,"poet":"bashir","theme":"ishq",
+      "lines":["Use dhundta hoon main har ik chehra mein ab bhi","Woh rehta hai mere andar, bahar bhi"],
+      "urdu":["اسے ڈھونڈتا ہوں میں ہر اک چہرے میں اب بھی","وہ رہتا ہے میرے اندر، باہر بھی"],
+      "meaning_en":"I still search for them in every face I see. They live both inside me and outside me. When love is deep enough, the beloved becomes part of one's entire existence.",
+      "meaning_hi":"मैं उसे अभी भी हर चेहरे में ढूंढता हूँ। वो मेरे अंदर भी रहता है, बाहर भी। जब इश्क गहरा हो तो महबूब पूरे वजूद का हिस्सा बन जाता है।"
+    },
+    {
+      "id":30,"poet":"bashir","theme":"waqt",
+      "lines":["Woh log bahut khush naseeb the Bashir","Jo ishq ko kaam se fursat mili toh kiye"],
+      "urdu":["وہ لوگ بہت خوش نصیب تھے بشیر","جو عشق کو کام سے فرصت ملی تو کئے"],
+      "meaning_hi":"बशीर, वो लोग बड़े ख़ुशकिस्मत थे जो काम से फ़ुर्सत मिली तो इश्क किया। आज की ज़िंदगी में इश्क के लिए वक्त ही कहाँ?",
+      "meaning_en":"How fortunate were those people, Bashir, who found time from their work to love. In today's busy world, who has the leisure to fall in love properly?"
+    },
+    {
+      "id":31,"poet":"sahir","theme":"zindagi",
+      "lines":["Main pal do pal ka shayar hoon, pal do pal meri kahani hai","Pal do pal meri hasti hai, pal do pal meri jawaani hai"],
+      "urdu":["میں پل دو پل کا شاعر ہوں پل دو پل میری کہانی ہے","پل دو پل میری ہستی ہے پل دو پل میری جوانی ہے"],
+      "meaning_en":"I am a poet of just a moment or two; my story lasts only a moment or two. My existence is brief, my youth is brief. A meditation on the fleeting nature of life and creativity.",
+      "meaning_hi":"मैं पल-दो-पल का शायर हूँ — मेरी कहानी पल-दो-पल की है। मेरी हस्ती और मेरी जवानी भी पल-दो-पल की है। जीवन और रचनात्मकता की क्षणभंगुरता पर विचार।"
+    },
+    {
+      "id":32,"poet":"sahir","theme":"khwab",
+      "lines":["Woh subah kabhi toh aayegi, in raaton ke dum ghutne walon","Uss waqt ke aane tak ke liye, aao meri baahon mein aao"],
+      "urdu":["وہ صبح کبھی تو آئے گی، ان راتوں کے دم گھٹنے والوں","اس وقت کے آنے تک کے لیے، آؤ مری باہوں میں آؤ"],
+      "meaning_en":"That morning will surely come one day, for those who are suffocated by these dark nights. Until that time arrives, come, come into my arms. A revolutionary poem laced with tenderness.",
+      "meaning_hi":"वो सुबह कभी तो आएगी — इन रातों में घुट-घुट कर जीने वालों के लिए। उस वक्त के आने तक — आओ, मेरी बाहों में आओ। क्रांति और कोमलता का मेल।"
+    },
+    {
+      "id":33,"poet":"sahir","theme":"gham",
+      "lines":["Jinhe naaz hai Hind par woh kahaan hain","Kahaan hain, kahaan hain, kahaan hain"],
+      "urdu":["جنہیں ناز ہے ہند پر وہ کہاں ہیں","کہاں ہیں، کہاں ہیں، کہاں ہیں"],
+      "meaning_en":"Where are those who take pride in India? Where are they, where are they, where are they? A powerful social commentary questioning the gap between national pride and social responsibility.",
+      "meaning_hi":"जिन्हें हिंद पर नाज़ है — वो कहाँ हैं? कहाँ हैं, कहाँ हैं, कहाँ हैं? राष्ट्रीय गर्व और सामाजिक ज़िम्मेदारी के बीच खाई पर तीखी टिप्पणी।"
+    },
+    {
+      "id":34,"poet":"sahir","theme":"ishq",
+      "lines":["Tum mujhe yoon bhula na paaoge","Jab kabhi bhi sunaoge gaane koi, yaad aa jaaunga main"],
+      "urdu":["تم مجھے یوں بھلا نہ پاؤ گے","جب کبھی بھی سناؤ گے گانے کوئی، یاد آ جاؤں گا میں"],
+      "meaning_en":"You will not be able to forget me so easily. Whenever you hear any song, I will come to your memory. Music becomes the carrier of an unforgettable love.",
+      "meaning_hi":"तुम मुझे यूँ भुला नहीं पाओगे। जब भी कोई गाना सुनोगे, मैं याद आ जाऊँगा। संगीत एक न भूलने वाले प्यार का माध्यम बन जाता है।"
+    },
+    {
+      "id":35,"poet":"ghalib","theme":"khwab",
+      "lines":["Hua hai shah ka musaahib, phire hai itrata","Wagar na sheher mein Ghalib ki aabroo kya hai"],
+      "urdu":["ہوا ہے شاہ کا مصاحب پھرے ہے اتراتا","وگر نہ شہر میں غالب کی آبرو کیا ہے"],
+      "meaning_en":"He struts about having become the king's companion. Otherwise, what reputation does Ghalib have in this city? A self-deprecating wit about social status and poetic fame.",
+      "meaning_hi":"राजा का दोस्त बनकर इतराता फिर रहा है — वरना इस शहर में ग़ालिब की क्या इज़्ज़त है? सामाजिक हैसियत पर स्व-व्यंग्य।"
+    },
+    {
+      "id":36,"poet":"faiz","theme":"khwab",
+      "lines":["Tere lab aaye hain mere khwaab mein","Jaise phool khilte hain baadal ke baad"],
+      "urdu":["تیرے لب آئے ہیں میرے خواب میں","جیسے پھول کھلتے ہیں بادل کے بعد"],
+      "meaning_en":"Your lips have come into my dreams, like flowers that bloom after the rain. Beauty and longing are intertwined — the beloved arrives like nature's own miracle.",
+      "meaning_hi":"तेरे होंठ मेरे ख़्वाब में आए — जैसे बारिश के बाद फूल खिलते हैं। सुंदरता और तड़प एक-दूसरे में गुँथे हैं।"
+    },
+    {
+      "id":37,"poet":"faraz","theme":"dost",
+      "lines":["Dost hote hain jab hum raaz-e-dil kehte hain","Aur dushman bhi wahi bante hain jab dard milte hain"],
+      "urdu":["دوست ہوتے ہیں جب ہم راز دل کہتے ہیں","اور دشمن بھی وہی بنتے ہیں جب درد ملتے ہیں"],
+      "meaning_en":"We make friends when we share our heart's secrets. And those same people become enemies when pain is exchanged. The bitter irony of human relationships.",
+      "meaning_hi":"जब दिल के राज़ कहते हैं तो दोस्त बनते हैं — और जब दर्द मिलते हैं तो वही दुश्मन भी बन जाते हैं। इंसानी रिश्तों की कड़वी सच्चाई।"
+    },
+    {
+      "id":38,"poet":"iqbal","theme":"khwab",
+      "lines":["Khwaab tha jo kuch ke dekha, jo suna afsaana tha","Zindagi ke daag ne seena mera viraan kiya"],
+      "urdu":["خواب تھا جو کچھ کہ دیکھا جو سنا افسانہ تھا","زندگی کے داغ نے سینہ مرا ویران کیا"],
+      "meaning_en":"Whatever I saw was a dream, whatever I heard was a fable. The wounds of life have made my heart a wasteland. Life itself is revealed as illusion, leaving only scars.",
+      "meaning_hi":"जो देखा वो सपना था, जो सुना वो अफ़साना था। ज़िंदगी के दागों ने मेरा सीना वीरान कर दिया। जीवन एक भ्रम है, जो सिर्फ ज़ख्म छोड़ जाता है।"
+    },
+    {
+      "id":39,"poet":"mir","theme":"khud",
+      "lines":["Tha khak mein milne ka, par dil ne yeh chaaha","Haste hue jaata koi gham khaane ki jagah"],
+      "urdu":["تھا خاک میں ملنے کا پر دل نے یہ چاہا","ہنستے ہوئے جاتا کوئی غم کھانے کی جگہ"],
+      "meaning_en":"I was destined to be dust, but my heart wished for this — that someone go laughing to the place of sorrow. Acceptance of fate with a smile — courage in the face of grief.",
+      "meaning_hi":"मुझे तो खाक में मिलना था — पर दिल ने यह चाहा कि कोई हँसते हुए ग़म खाने की जगह जाए। तक़दीर को मुस्कराते हुए स्वीकार करना।"
+    },
+    {
+      "id":40,"poet":"bashir","theme":"intezaar",
+      "lines":["Aaoge toh phir aisi raat hogi","Ke chaand sitaare bhi jaag jaayenge"],
+      "urdu":["آؤ گے تو پھر ایسی رات ہو گی","کہ چاند ستارے بھی جاگ جائیں گے"],
+      "meaning_en":"When you come, that night will be such that even the moon and stars will wake up. The beloved's return is imagined as a cosmic event that illuminates the entire universe.",
+      "meaning_hi":"जब आओगे तो ऐसी रात होगी कि चाँद-सितारे भी जाग जाएँगे। महबूब का आना एक ब्रह्मांडीय घटना की तरह कल्पित है।"
+    },
+    {
+      "id":41,"poet":"ghalib","theme":"ishq",
+      "lines":["Na tha kuch toh Khuda tha, kuch na hota toh Khuda hota","Duboya mujhko hone ne, na hota main toh kya hota"],
+      "urdu":["نہ تھا کچھ تو خدا تھا، کچھ نہ ہوتا تو خدا ہوتا","ڈبویا مجھ کو ہونے نے، نہ ہوتا میں تو کیا ہوتا"],
+      "meaning_en":"When nothing existed, God was; if nothing were to exist, God would still be. My very existence has drowned me — what would have happened if I had not existed? Ghalib muses on existence and the burden of being.",
+      "meaning_hi":"जब कुछ नहीं था तो ख़ुदा था — कुछ न होता तो भी ख़ुदा होता। मेरे होने ने ही मुझे डुबोया — न होता तो क्या होता? अस्तित्व के बोझ पर ग़ालिब का चिंतन।"
+    },
+    {
+      "id":42,"poet":"faiz","theme":"khud",
+      "lines":["Hum parwarish-e-lauh-o-qalam karte rahenge","Jo dil pe guzarti hai raqam karte rahenge"],
+      "urdu":["ہم پرورشِ لوح و قلم کرتے رہیں گے","جو دل پہ گزرتی ہے رقم کرتے رہیں گے"],
+      "meaning_en":"We shall continue to nurture the pen and the page. Whatever passes through the heart, we shall continue to write it down. A poet's pledge to keep creating regardless of circumstances.",
+      "meaning_hi":"हम क़लम और काग़ज़ की परवरिश करते रहेंगे। दिल पर जो गुज़रेगी, उसे लिखते रहेंगे। एक शायर का वादा — हर हाल में लिखते रहना।"
+    },
+    {
+      "id":43,"poet":"mir","theme":"gham",
+      "lines":["Dil ki veerani ka kya zikar karo","Yeh nagar toh ek baar aabad tha"],
+      "urdu":["دل کی ویرانی کا کیا ذکر کرو","یہ نگر تو ایک بار آباد تھا"],
+      "meaning_en":"What can I say about the desolation of my heart? This city (the heart) was once inhabited and full of life. The heart as a once-thriving city now reduced to ruins by loss.",
+      "meaning_hi":"दिल की वीरानी का क्या ज़िक्र करूँ? यह नगर (दिल) कभी आबाद था। एक दिल जो कभी ख़ुशियों से भरा था, अब खंडहर बन गया है।"
+    },
+    {
+      "id":44,"poet":"iqbal","theme":"zindagi",
+      "lines":["Apne mann mein doob kar paa ja suragh-e-zindagi","Tu agar mera nahi banta, na ban, apna toh ban"],
+      "urdu":["اپنے من میں ڈوب کر پا جا سراغ زندگی","تو اگر میرا نہیں بنتا نہ بن اپنا تو بن"],
+      "meaning_en":"Dive deep within your own mind and find the secret of life. If you cannot be mine, do not be; but at least become your own. A call to self-discovery and ownership of one's identity.",
+      "meaning_hi":"अपने मन में डूब कर ज़िंदगी का राज़ खोजो। अगर मेरा नहीं बनता तो मत बन — पर कम से कम अपना तो बन। आत्म-खोज और आत्मस्वामित्व का आह्वान।"
+    },
+    {
+      "id":45,"poet":"faraz","theme":"ishq",
+      "lines":["Sunaa hai log use aankhein bhari rakhte hain","Toh phir uss chehra-e-gul par nigaah kyun na karun"],
+      "urdu":["سنا ہے لوگ اسے آنکھیں بھری رکھتے ہیں","تو پھر اس چہرۂ گل پر نگاہ کیوں نہ کروں"],
+      "meaning_en":"I have heard that people keep their eyes filled (with tears) after seeing that face. So why should I not gaze upon that flower-like face? Beauty so great it moves people to tears.",
+      "meaning_hi":"सुना है लोग उसे देखकर आँखें भरी रखते हैं। तो फिर उस गुलाब-सी चेहरे पर नज़र क्यों न करूँ? ऐसी सुंदरता जो लोगों को आँसू दे।"
+    },
+    {
+      "id":46,"poet":"jaun","theme":"khud",
+      "lines":["Kya bura tha jo hum ne jeena seekh liya","Ab toh marne ki bhi tamanna hai na"],
+      "urdu":["کیا برا تھا جو ہم نے جینا سیکھ لیا","اب تو مرنے کی بھی تمنا ہے نہ"],
+      "meaning_en":"What was wrong with the fact that I learned to live? Now I no longer even have the desire to die. Jaun's dark irony — having mastered the pain of living, even death has lost its appeal.",
+      "meaning_hi":"क्या बुरा था कि हमने जीना सीख लिया? अब तो मरने की भी तमन्ना नहीं रही। जौन का काला हास्य — जिसने जीना सीख लिया, उसे मृत्यु की भी चाह नहीं।"
+    },
+    {
+      "id":47,"poet":"bashir","theme":"zindagi",
+      "lines":["Ik baar toh aise milo aankhon mein utaro","Jaise ke kabhi milne ki umeed na thi"],
+      "urdu":["اک بار تو ایسے ملو آنکھوں میں اترو","جیسے کہ کبھی ملنے کی امید نہ تھی"],
+      "meaning_en":"Meet me just once in such a way that you enter my eyes — as if there had never been any hope of meeting. Meet me as if this moment is the only one that exists.",
+      "meaning_hi":"एक बार तो ऐसे मिलो कि आँखों में उतर जाओ — जैसे कभी मिलने की उम्मीद ही नहीं थी। इस तरह मिलो जैसे यही पल एकमात्र पल है।"
+    },
+    {
+      "id":48,"poet":"ghalib","theme":"waqt",
+      "lines":["Zindagi apni jab is shakl se guzri Ghalib","Hum bhi kya yaad karenge ke kya khwaab tha"],
+      "urdu":["زندگی اپنی جب اس شکل سے گزری غالب","ہم بھی کیا یاد کریں گے کہ کیا خواب تھا"],
+      "meaning_en":"When my life passed in this manner, Ghalib, what will I even remember — what kind of dream was it? A resigned reflection on a life that passed like a vague, forgettable dream.",
+      "meaning_hi":"ग़ालिब, जब ज़िंदगी इस तरह गुज़री — तो हम भी क्या याद करेंगे कि कैसा सपना था? एक ज़िंदगी जो धुंधले सपने की तरह गुज़र गई।"
+    },
+    {
+      "id":49,"poet":"faiz","theme":"dost",
+      "lines":["Gulon mein rang bhare, baad-e-naubahaar chale","Chale bhi aao ke gulshan ka karobaar chale"],
+      "urdu":["گلوں میں رنگ بھرے، باد نو بہار چلے","چلے بھی آؤ کہ گلشن کا کاروبار چلے"],
+      "meaning_en":"Colors are being filled into the flowers, the spring breeze is blowing. Come now, so that the business of the garden can proceed. An invitation to love, framed as nature's own calling.",
+      "meaning_hi":"फूलों में रंग भर रहा है, नई बहार की हवा चल रही है। आ भी जाओ — ताकि बागीचे का काम-काज चले। प्रकृति की भाषा में प्रेम का निमंत्रण।"
+    },
+    {
+      "id":50,"poet":"mir","theme":"ishq",
+      "lines":["Aashiqi mein be-sabri kaisi khushi","Is raah mein seedha chalna bhi mana hai"],
+      "urdu":["عاشقی میں بے صبری کیسی خوشی","اس راہ میں سیدھا چلنا بھی منع ہے"],
+      "meaning_en":"What joy is there in impatience in love? Even walking straight is forbidden on this path. Love demands surrender — there are no shortcuts or easy routes.",
+      "meaning_hi":"इश्क में बेसब्री कैसी खुशी? इस राह में सीधे चलना भी मना है। इश्क में समर्पण ज़रूरी है — यहाँ कोई शॉर्टकट नहीं।"
+    },
+    {
+      "id":51,"poet":"iqbal","theme":"khud",
+      "lines":["Nahi tera nasheman qasr-e-sultaani ke gumbad par","Tu shaheen hai basera kar pahaadon ki chatanon mein"],
+      "urdu":["نہیں تیرا نشیمن قصر سلطانی کے گنبد پر","تو شاہیں ہے بسیرا کر پہاڑوں کی چٹانوں میں"],
+      "meaning_en":"Your nest is not on the domes of kings' palaces. You are an eagle — make your home in the rocky crags of mountains. Iqbal urges the soul to seek independence, not comfort in power.",
+      "meaning_hi":"तेरा घर राजमहल के गुंबद पर नहीं है। तू शाहीन है — पहाड़ों की चट्टानों में घर बना। इक़बाल आत्मा को शक्ति में आराम नहीं, स्वाधीनता खोजने का आह्वान करते हैं।"
+    },
+    {
+      "id":52,"poet":"faraz","theme":"gham",
+      "lines":["Koyi nahin jo dard ki baatein sune meri","Is sheher mein hain log magar koi nahi"],
+      "urdu":["کوئی نہیں جو درد کی باتیں سنے میری","اس شہر میں ہیں لوگ مگر کوئی نہیں"],
+      "meaning_en":"There is no one to listen to the stories of my pain. In this city there are people, but there is no one. The profound urban loneliness — surrounded by crowds but utterly alone.",
+      "meaning_hi":"कोई नहीं जो मेरे दर्द की बात सुने। इस शहर में लोग हैं — पर कोई नहीं। भीड़ में भी अकेलेपन की गहरी तस्वीर।"
+    },
+    {
+      "id":53,"poet":"sahir","theme":"zindagi",
+      "lines":["Kabhi kabhi mere dil mein khayaal aata hai","Ke zindagi teri zulfon ki narm chhaon mein"],
+      "urdu":["کبھی کبھی مرے دل میں خیال آتا ہے","کہ زندگی تری زلفوں کی نرم چھاؤں میں"],
+      "meaning_en":"Sometimes a thought comes to my heart — that life, in the soft shade of your hair, would have passed so beautifully. A daydream of love as a refuge from the hardness of reality.",
+      "meaning_hi":"कभी-कभी मेरे दिल में ख़याल आता है — कि ज़िंदगी तेरी ज़ुल्फ़ों की नरम छाँव में गुज़रती। प्यार को हक़ीक़त की कठोरता से शरण के रूप में देखने का सपना।"
+    },
+    {
+      "id":54,"poet":"jaun","theme":"ishq",
+      "lines":["Mohabbat karne wale kam na honge","Teri mehfil mein lekin hum na honge"],
+      "urdu":["محبت کرنے والے کم نہ ہوں گے","تری محفل میں لیکن ہم نہ ہوں گے"],
+      "meaning_en":"Those who love you will not be few. But I will not be among them in your gathering. A quiet resignation — I love you, but I have accepted I will never be chosen.",
+      "meaning_hi":"तुझे चाहने वाले कम नहीं होंगे — पर तेरी महफ़िल में हम नहीं होंगे। एक शांत त्याग — मैं तुमसे प्यार करता हूँ, पर मुझे पता है मुझे नहीं चुना जाएगा।"
+    },
+    {
+      "id":55,"poet":"ghalib","theme":"ishq",
+      "lines":["Dono jahaan de ke bhi kuch haath na aaya","Kho diya tujhe toh gaya sab kuch jo tha"],
+      "urdu":["دونوں جہاں دے کے بھی کچھ ہاتھ نہ آیا","کھو دیا تجھے تو گیا سب کچھ جو تھا"],
+      "meaning_en":"Even giving up both worlds, nothing was gained. When I lost you, everything I had was gone. The beloved is worth more than all of existence — their absence empties the entire world.",
+      "meaning_hi":"दोनों जहाँ देकर भी कुछ हासिल नहीं हुआ। तुझे खोया तो सब कुछ चला गया। महबूब पूरे वजूद से भी ज़्यादा क़ीमती है।"
+    },
+    {
+      "id":56,"poet":"faiz","theme":"waqt",
+      "lines":["Yeh daag daag ujala, yeh shab-gazeeda seher","Woh intezaar tha jiska, yeh woh seher toh nahin"],
+      "urdu":["یہ داغ داغ اجالا، یہ شب گزیدہ سحر","وہ انتظار تھا جس کا، یہ وہ سحر تو نہیں"],
+      "meaning_en":"This stained, wounded dawn — this morning bitten by the night. This is not the dawn we had been waiting for. Written after Partition, it questions whether independence truly brought the promised light.",
+      "meaning_hi":"यह दागदार रोशनी, यह रात-काटी सुबह — जिसका इंतज़ार था, वो सुबह यह नहीं। बंटवारे के बाद लिखी गई — क्या आज़ादी ने वो रोशनी दी जिसकी उम्मीद थी?"
+    },
+    {
+      "id":57,"poet":"mir","theme":"waqt",
+      "lines":["Yeh ishq nahin asaan, itna hee samjho","Ek aag ka dariya hai aur doob ke jaana hai"],
+      "urdu":["یہ عشق نہیں آسان اتنا ہی سمجھو","اک آگ کا دریا ہے اور ڈوب کے جانا ہے"],
+      "meaning_en":"Know only this much — love is not easy. It is a river of fire, and one must drown in it to cross. Love demands total surrender — a passage through flames.",
+      "meaning_hi":"बस इतना समझ लो — इश्क आसान नहीं। यह आग का दरिया है और डूब कर ही जाना है। इश्क में पूरा समर्पण ही एकमात्र रास्ता है।"
+    },
+    {
+      "id":58,"poet":"iqbal","theme":"ishq",
+      "lines":["Ishq ke rang mein rang le kud ko","Zindagi ek kaafi nahi dono jahaan ke liye"],
+      "urdu":["عشق کے رنگ میں رنگ لے خود کو","زندگی ایک کافی نہیں دونوں جہاں کے لیے"],
+      "meaning_en":"Color yourself in the hue of love. One life is not enough for both worlds. Love is not just a feeling but an entire way of being that transcends life itself.",
+      "meaning_hi":"खुद को इश्क के रंग में रंग लो। एक ज़िंदगी दोनों जहाँ के लिए काफ़ी नहीं। इश्क सिर्फ एक एहसास नहीं — यह जीवन का एक पूरा तरीका है।"
+    },
+    {
+      "id":59,"poet":"faraz","theme":"intezaar",
+      "lines":["Kuch khwab the jo aankhon mein rehte the hamesha","Aaj woh bhi kho gaye aankhon ki thi thandak"],
+      "urdu":["کچھ خواب تھے جو آنکھوں میں رہتے تھے ہمیشہ","آج وہ بھی کھو گئے آنکھوں کی تھی ٹھنڈک"],
+      "meaning_en":"There were some dreams that always lived in my eyes — their very presence was a coolness in my gaze. Today even those have been lost. When dreams die, even the eyes lose their warmth.",
+      "meaning_hi":"कुछ सपने थे जो हमेशा आँखों में रहते थे — उनकी मौजूदगी से आँखों में ठंडक थी। आज वो भी खो गए। सपने मरें तो आँखें भी बेनूर हो जाती हैं।"
+    },
+    {
+      "id":60,"poet":"bashir","theme":"gham",
+      "lines":["Main woh nahin jo tum ne soch rakha tha","Main woh nahin jo mujhse milne aaye log"],
+      "urdu":["میں وہ نہیں جو تم نے سوچ رکھا تھا","میں وہ نہیں جو مجھ سے ملنے آئے لوگ"],
+      "meaning_en":"I am not what you imagined me to be. I am not what the people who came to meet me expected. A quiet protest against the expectations others project onto us.",
+      "meaning_hi":"मैं वो नहीं जो तुमने सोचा था। मैं वो नहीं जो मुझसे मिलने आए लोगों ने समझा। दूसरों की अपेक्षाओं के विरुद्ध एक शांत विरोध।"
+    },
+    {
+      "id":61,"poet":"ghalib","theme":"zindagi",
+      "lines":["Haan woh nahin Khuda-parast, jaa usse", "Ye keh do Ghalib ke hum to yaad karte hain"],
+      "urdu":["ہاں وہ نہیں خدا پرست، جا اسے","یہ کہہ دو غالب کے ہم تو یاد کرتے ہیں"],
+      "meaning_en":"Yes, he is not a worshipper of God — go tell him this. Tell him that Ghalib, at least, still remembers him. A tender, ironic loyalty to a beloved or friend who has strayed.",
+      "meaning_hi":"हाँ, वो ख़ुदा-परस्त नहीं — जाओ, उसे यह बता दो। और यह भी कह दो कि ग़ालिब तो उसे याद करते हैं। एक कोमल, व्यंग्यात्मक वफ़ादारी।"
+    },
+    {
+      "id":62,"poet":"sahir","theme":"khud",
+      "lines":["Jinhe naaz hai apni roti par","Woh nahin jaante kya hai gham-e-rozgaar"],
+      "urdu":["جنہیں ناز ہے اپنی روٹی پر","وہ نہیں جانتے کیا ہے غم روزگار"],
+      "meaning_en":"Those who take pride in their bread do not know what the sorrow of livelihood truly is. Sahir speaks for the poor and the laborer — pride of the fed is ignorance of the hungry.",
+      "meaning_hi":"जिन्हें अपनी रोटी पर नाज़ है — वो नहीं जानते रोज़ी-रोटी का ग़म क्या होता है। साहिर ग़रीब और मज़दूर के लिए बोलते हैं।"
+    },
+    {
+      "id":63,"poet":"faiz","theme":"zindagi",
+      "lines":["Aur bhi gham hain zamane mein mohabbat ke siwa","Rahatein aur bhi hain wasl ki raahat ke siwa"],
+      "urdu":["اور بھی غم ہیں زمانے میں محبت کے سوا","راحتیں اور بھی ہیں وصل کی راحت کے سوا"],
+      "meaning_en":"There are other sorrows in the world besides love. There are other comforts besides the comfort of union. Faiz asks us to look beyond personal love to the wider suffering of humanity.",
+      "meaning_hi":"दुनिया में मोहब्बत के सिवा और भी ग़म हैं। मिलन की राहत के सिवा और भी सुकून हैं। फ़ैज़ हमें व्यक्तिगत प्रेम से परे मानवता के दर्द की ओर देखने के लिए कहते हैं।"
+    },
+    {
+      "id":64,"poet":"mir","theme":"khwab",
+      "lines":["Hua jo mujhpe sitam teri aankh ne Mir","Toh kya hua ke mere dil ne bhi kuch kaha"],
+      "urdu":["ہوا جو مجھ پہ ستم تیری آنکھ نے میر","تو کیا ہوا کہ مرے دل نے بھی کچھ کہا"],
+      "meaning_en":"When your eyes did cruelty to me, Mir — what happened was that my heart also spoke up. Even suffering at the hands of the beloved awakens something within — the heart finds its voice.",
+      "meaning_hi":"जब तेरी आँखों ने मुझ पर ज़ुल्म किया, मीर — तो क्या हुआ कि मेरे दिल ने भी कुछ कह दिया। महबूब के हाथों दर्द भी अंदर कुछ जगा देता है।"
+    },
+    {
+      "id":65,"poet":"jaun","theme":"gham",
+      "lines":["Kuch aur chaahiye waaste uske jeeney ke","Jo mil gaya hai use woh bahut zyada hai"],
+      "urdu":["کچھ اور چاہیے واسطے اس کے جینے کے","جو مل گیا ہے اسے وہ بہت زیادہ ہے"],
+      "meaning_en":"Something more is needed for one to truly live. What he has already received is too much for him. Jaun's sharp irony on sufficiency, desire, and the restlessness of the human condition.",
+      "meaning_hi":"जीने के लिए उसे और कुछ चाहिए। जो मिल गया है वो उसके लिए बहुत ज़्यादा है। जौन की तीखी विडंबना — इंसान की बेचैन प्रकृति पर।"
+    },
+    {
+      "id":66,"poet":"ghalib","theme":"dost",
+      "lines":["Yeh na thi hamaari qismat ke visaal-e-yaar hota","Agar aur jeete rehte yehi intezaar hota"],
+      "urdu":["یہ نہ تھی ہماری قسمت کہ وصالِ یار ہوتا","اگر اور جیتے رہتے یہی انتظار ہوتا"],
+      "meaning_en":"It was not in my fate to be united with my beloved. Even if I had lived longer, it would only have been more waiting. A heartbreaking acceptance that some meetings are simply not destined.",
+      "meaning_hi":"यह मेरी किस्मत नहीं थी कि महबूब से मिलन हो। और जीते रहते तो भी यही इंतज़ार रहता। कुछ मिलन होते ही नहीं — इसकी दर्दनाक स्वीकृति।"
+    },
+    {
+      "id":67,"poet":"faraz","theme":"zindagi",
+      "lines":["Apni khwaish mein barbaad ho gaye hum bhi","Warna main bhi bahut kuch sun-te the log"],
+      "urdu":["اپنی خواہش میں برباد ہو گئے ہم بھی","ورنہ میں بھی بہت کچھ سنتے تھے لوگ"],
+      "meaning_en":"I too was ruined by my own desires. Otherwise, people used to speak very highly of me too. A confessional verse — the narrator destroyed his own reputation through his longing.",
+      "meaning_hi":"मैं भी अपनी ख्वाहिश में बर्बाद हो गया। वरना मेरे बारे में भी लोग बहुत कुछ कहते थे। एक कबूलनामा — खुद की चाहतों ने खुद की इज़्ज़त बर्बाद कर दी।"
+    },
+    {
+      "id":68,"poet":"sahir","theme":"ishq",
+      "lines":["Chalo ik baar phir se, ajnabi ban jaaein hum dono","Na main tumse koi umeed rakhun, na tum meri wafa yaad karo"],
+      "urdu":["چلو اک بار پھر سے اجنبی بن جائیں ہم دونوں","نہ میں تم سے کوئی امید رکھوں نہ تم میری وفا یاد کرو"],
+      "meaning_en":"Come, let us become strangers to each other once more. I will expect nothing from you, and you need not remember my devotion. Sometimes separation is the kindest resolution.",
+      "meaning_hi":"चलो, एक बार फिर अजनबी बन जाएँ हम दोनों। न मैं तुमसे उम्मीद रखूँ, न तुम मेरी वफ़ा याद करो। कभी-कभी जुदाई ही सबसे दयालु समाधान होती है।"
+    },
+    {
+      "id":69,"poet":"mir","theme":"intezaar",
+      "lines":["Teri aankhon mein woh kya hai jo dekha na gaya","Is baar bhi main kuch keh na saka, chal diya"],
+      "urdu":["تیری آنکھوں میں وہ کیا ہے جو دیکھا نہ گیا","اس بار بھی میں کچھ کہہ نہ سکا، چل دیا"],
+      "meaning_en":"What is it in your eyes that cannot be endured? This time too I could say nothing, and simply walked away. The overwhelming power of the beloved's gaze — it silences even the most eloquent.",
+      "meaning_hi":"तेरी आँखों में वो क्या है जो देखा नहीं गया? इस बार भी मैं कुछ कह नहीं पाया, चल दिया। महबूब की नज़र की ताकत — जो सबसे वाक्पटु को भी चुप करा दे।"
+    },
+    {
+      "id":70,"poet":"iqbal","theme":"dost",
+      "lines":["Khirman-e-hayaat se uthaaun main kya","Apni be-khabar pe mujhe pyaar hai"],
+      "urdu":["خرمن حیات سے اٹھاؤں میں کیا","اپنی بے خبری پہ مجھے پیار ہے"],
+      "meaning_en":"What can I carry away from the harvest of life? I have a love for my own unawareness. Iqbal finds peace in not knowing — sometimes ignorance is its own kind of grace.",
+      "meaning_hi":"ज़िंदगी की फ़सल से मैं क्या उठाऊँ? मुझे अपनी बेखबरी से प्यार है। इक़बाल अज्ञान में शांति पाते हैं — कभी-कभी अनजान रहना ही कृपा है।"
+    },
+    {
+      "id":71,"poet":"ghalib","theme":"gham",
+      "lines":["Bas ke dushwaar hai har kaam ka aasaan hona","Aadmi ko bhi muyassar nahi insaan hona"],
+      "urdu":["بس کہ دشوار ہے ہر کام کا آسان ہونا","آدمی کو بھی میسر نہیں انسان ہونا"],
+      "meaning_en":"Every task is difficult — becoming easy is itself difficult. Even for a human, being truly human is not easily attained. Ghalib's deepest statement on the difficulty of genuine humanity.",
+      "meaning_hi":"हर काम का आसान होना ही मुश्किल है। इंसान को भी इंसान बनना नसीब नहीं। इंसानियत की कठिनाई पर ग़ालिब का सबसे गहरा कथन।"
+    },
+    {
+      "id":72,"poet":"faiz","theme":"khud",
+      "lines":["Aise kyun chhod ke jaate ho mere haal pe","Main teri zulm ki duniya ka aadat kar chuka hoon"],
+      "urdu":["ایسے کیوں چھوڑ کے جاتے ہو مرے حال پہ","میں تیری ظلم کی دنیا کا عادت کر چکا ہوں"],
+      "meaning_en":"Why do you leave me in this state? I have already grown accustomed to your world of cruelty. The dark comfort of familiar suffering — a protest wrapped in resignation.",
+      "meaning_hi":"मेरे हाल पर ऐसे क्यों छोड़ कर जाते हो? मैं तो तेरे ज़ुल्म की दुनिया का आदी हो चुका हूँ। जाने-पहचाने दर्द की काली तसल्ली — विरोध जो समर्पण में लिपटा है।"
+    },
+    {
+      "id":73,"poet":"jaun","theme":"ishq",
+      "lines":["Tum ek gorakh dhanda ho","Mohabbat karo toh zyada, na karo toh kum"],
+      "urdu":["تم ایک گورکھ دھندہ ہو","محبت کرو تو زیادہ نہ کرو تو کم"],
+      "meaning_en":"You are a mysterious puzzle. If I love you, it is too much; if I don't, it is too little. The beloved as an unsolvable paradox — no amount of love is ever right.",
+      "meaning_hi":"तुम एक गोरख-धंधा हो। मोहब्बत करो तो ज़्यादा, न करो तो कम। महबूब एक अनसुलझी पहेली है — प्यार की कोई भी मात्रा सही नहीं।"
+    },
+    {
+      "id":74,"poet":"bashir","theme":"ishq",
+      "lines":["Khuda kare ke mohabbat mein woh maqaam aaye","Ke khud ba khud teri yaad aa jaaye"],
+      "urdu":["خدا کرے کہ محبت میں وہ مقام آئے","کہ خود بہ خود تری یاد آ جائے"],
+      "meaning_en":"God grant that love reaches that stage where your memory comes to me on its own, without effort. When love is deep enough, the beloved becomes an involuntary presence in the mind.",
+      "meaning_hi":"ख़ुदा करे कि मोहब्बत में वो मुक़ाम आए — जहाँ खुद-ब-खुद तेरी याद आ जाए। जब इश्क इतना गहरा हो कि महबूब की याद अपने आप आए।"
+    },
+    {
+      "id":75,"poet":"ghalib","theme":"khud",
+      "lines":["Main ko mita ke khud ko bhi mita diya","Ab koi dekhne wala nahin bacha yahan"],
+      "urdu":["میں کو مٹا کے خود کو بھی مٹا دیا","اب کوئی دیکھنے والا نہیں بچا یہاں"],
+      "meaning_en":"By erasing 'I', I erased myself too. Now there is no one left here to witness anything. The Sufi idea of annihilating the ego — and then discovering there is no observer left either.",
+      "meaning_hi":"'मैं' को मिटाकर खुद को भी मिटा दिया। अब यहाँ देखने वाला कोई नहीं बचा। अहंकार के विसर्जन का सूफ़ी विचार — और फिर पाना कि देखने वाला भी नहीं बचा।"
+    },
+    {
+      "id":76,"poet":"sahir","theme":"waqt",
+      "lines":["Waqt ne kiya kya haseen sitam","Tum rahe na tum, hum rahe na hum"],
+      "urdu":["وقت نے کیا کیا حسین ستم","تم رہے نہ تم، ہم رہے نہ ہم"],
+      "meaning_en":"What beautiful cruelty time has wrought. You are no longer you, I am no longer I. Time transforms people so completely that they become strangers to their former selves.",
+      "meaning_hi":"वक्त ने क्या खूबसूरत ज़ुल्म किया। तुम वो न रहे, हम वो न रहे। वक्त इंसान को इस तरह बदल देता है कि वो अपने पुराने 'मैं' से अजनबी हो जाता है।"
+    },
+    {
+      "id":77,"poet":"faiz","theme":"intezaar",
+      "lines":["Kab aaoge, kab aaoge, kab aaoge mere yaar","Zindagi roz guzarti hai tere intezaar mein"],
+      "urdu":["کب آؤ گے، کب آؤ گے، کب آؤ گے مرے یار","زندگی روز گزرتی ہے تیرے انتظار میں"],
+      "meaning_en":"When will you come, when will you come, when will you come, my beloved? Life passes by each day in waiting for you. Waiting transforms into the very rhythm of life itself.",
+      "meaning_hi":"कब आओगे, कब आओगे, कब आओगे मेरे यार? ज़िंदगी रोज़ तेरे इंतज़ार में गुज़र जाती है। इंतज़ार ज़िंदगी की लय ही बन जाता है।"
+    },
+    {
+      "id":78,"poet":"mir","theme":"zindagi",
+      "lines":["Ab ke garmi mein atish-e-dil bhi bhadak uthi hai","Yeh mausam toh pahale bhi aaya tha magar kya baat thi"],
+      "urdu":["اب کے گرمی میں آتشِ دل بھی بھڑک اٹھی ہے","یہ موسم تو پہلے بھی آیا تھا مگر کیا بات تھی"],
+      "meaning_en":"This summer, the fire of the heart has also flared up. This season has come before, but there was something different about it then. Each season carries memories of a different self — a lost happiness.",
+      "meaning_hi":"इस गर्मी में दिल की आग भी भड़क उठी है। यह मौसम पहले भी आया था — पर तब क्या बात थी! हर मौसम एक अलग 'मैं' की यादें लाता है।"
+    },
+    {
+      "id":79,"poet":"iqbal","theme":"khwab",
+      "lines":["Agar aulad-e-adam hai, toh sama ho jaa","Falak ki tarah wasi aur pareshan ho jaa"],
+      "urdu":["اگر اولادِ آدم ہے تو سما ہو جا","فلک کی طرح وسیع اور پریشاں ہو جا"],
+      "meaning_en":"If you are truly a child of Adam, then encompass all of existence. Become as vast and restless as the sky. Iqbal urges the human soul to expand beyond smallness into universal consciousness.",
+      "meaning_hi":"अगर सच में आदम की संतान हो, तो पूरे अस्तित्व को समो लो। आकाश की तरह विशाल और बेचैन हो जाओ। इक़बाल मानव-आत्मा को संकीर्णता से परे विश्वचेतना की ओर बुलाते हैं।"
+    },
+    {
+      "id":80,"poet":"faraz","theme":"khud",
+      "lines":["Main apne aap se naraaz hoon is liye","Ke main apne aap se kitna door ho gaya"],
+      "urdu":["میں اپنے آپ سے ناراض ہوں اس لیے","کہ میں اپنے آپ سے کتنا دور ہو گیا"],
+      "meaning_en":"I am angry with myself for this reason — that I have drifted so far from myself. A verse about self-alienation — losing one's own essence in the noise of the world.",
+      "meaning_hi":"मैं अपने आप से नाराज़ हूँ इस लिए — कि मैं अपने आप से कितना दूर हो गया। आत्म-अलगाव — दुनिया के शोर में अपनी असलियत खो देना।"
+    }
+  ]
+}
