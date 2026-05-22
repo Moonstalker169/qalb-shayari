@@ -1260,15 +1260,16 @@ function toggleMeaning(btn, id) {
   btn.style.color =function speakSher(btn, id) {
   const wasPlaying = btn.classList.contains('playing');
 
-  // Stop any current ResponsiveVoice playback
+  // Stop any current playback
   try { if (typeof responsiveVoice !== 'undefined') responsiveVoice.cancel(); } catch(e) {}
-  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if (window.speechSynthesis) try { window.speechSynthesis.cancel(); } catch(e) {}
+  if (window._qalbAudio) { window._qalbAudio.pause(); window._qalbAudio = null; }
 
   document.querySelectorAll('.sher-btn.playing').forEach(b => {
     b.classList.remove('playing');
-    b.innerHTML = '<span>🔊</span> Listen';
+    b.innerHTML = '<span>\U0001f50a</span> Listen';
   });
-  if (wasPlaying) return; // toggle off
+  if (wasPlaying) return;
 
   const s = SHAYARI.find(x => x.id === parseInt(id));
   if (!s) return;
@@ -1276,38 +1277,38 @@ function toggleMeaning(btn, id) {
   btn.classList.add('playing');
   btn.innerHTML = '<span>&#9209;</span> Stop';
 
-  const text = s.lines.join(' ... ');
-
   const done = () => {
     btn.classList.remove('playing');
-    btn.innerHTML = '<span>🔊</span> Listen';
+    btn.innerHTML = '<span>\U0001f50a</span> Listen';
+    window._qalbAudio = null;
   };
 
-  if (typeof responsiveVoice !== 'undefined' && responsiveVoice.voiceSupport()) {
-    // "Hindi Male" = ResponsiveVoice voiceID 394 — real male Indian voice
-    responsiveVoice.speak(text, 'Hindi Male', {
-      rate: 0.78,
-      pitch: 0.85,
-      volume: 1,
-      onend: done,
-      onerror: done
-    });
-  } else {
-    // Fallback: Web Speech API, deepest pitch possible
-    if (!window.speechSynthesis) { done(); return; }
-    const voices = window.speechSynthesis.getVoices();
-    const v = voices.find(x => x.lang === 'hi-IN') ||
-              voices.find(x => x.lang === 'en-IN') ||
-              voices.find(x => x.lang.startsWith('hi')) || null;
-    const u = new SpeechSynthesisUtterance(text);
-    if (v) u.voice = v;
-    u.lang   = v ? v.lang : 'hi-IN';
-    u.pitch  = 0.1;
-    u.rate   = 0.72;
-    u.volume = 1.0;
-    u.onend  = done;
-    window.speechSynthesis.speak(u);
-  }
+  // Pre-generated Microsoft MadhurNeural (Indian male) MP3 hosted on GitHub Releases
+  const audioUrl = `https://github.com/Moonstalker169/qalb-shayari/releases/download/audio-v1/s${s.id}.mp3`;
+
+  const audio = new Audio(audioUrl);
+  window._qalbAudio = audio;
+  audio.onended = done;
+  audio.onerror = () => {
+    window._qalbAudio = null;
+    // Fallback: ResponsiveVoice Hindi Male
+    const text = s.lines.join(' ... ');
+    if (typeof responsiveVoice !== 'undefined' && responsiveVoice.voiceSupport()) {
+      responsiveVoice.speak(text, 'Hindi Male', { rate: 0.78, pitch: 0.85, volume: 1, onend: done, onerror: done });
+    } else {
+      done();
+      showToast('Audio unavailable — check your connection');
+    }
+  };
+  audio.play().catch(() => {
+    window._qalbAudio = null;
+    const text = s.lines.join(' ... ');
+    if (typeof responsiveVoice !== 'undefined' && responsiveVoice.voiceSupport()) {
+      responsiveVoice.speak(text, 'Hindi Male', { rate: 0.78, pitch: 0.85, volume: 1, onend: done, onerror: done });
+    } else {
+      done();
+    }
+  });
 }catch(() => {
       currentAudio = null;
       _fallbackSpeech(btn, s);
