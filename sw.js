@@ -1,4 +1,4 @@
-const CACHE = 'qalb-v3';
+const CACHE = 'qalb-v4';
 const ASSETS = [
   '/',
   '/index.html',
